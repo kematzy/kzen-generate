@@ -107,7 +107,7 @@ module Kzen
     def start
       @time_start = Process.clock_gettime(Process::CLOCK_MONOTONIC)
       puts
-      logger.begin("Started running: #{format.bright_cyan.bold("'#{current_patch}'")}")
+      logger.begin("Started running: #{bbc(current_patch)}")
       puts
     end
 
@@ -146,12 +146,12 @@ module Kzen
           logger.error("Error: [ #{e.inspect} ]")
         end
       else
-        logger.fatal("No such patch [ #{format.bold.red(patch)} ] found.")
+        logger.fatal("No such patch #{bbr(patch)} found.")
         puts
         logger.warn("Available patches are:")
 
         Dir["#{@source_path}/**/*.patch.rb"].each do |f|
-          logger.warn("-- #{format.bold.bright_green(patch_str(f))}")
+          logger.warn("-- #{bbg(patch_str(f))}")
         end
         logger.warn("Terminated execution")
       end
@@ -160,11 +160,11 @@ module Kzen
     # Finish message
     def finish
       puts
-      logger.end("Finished running: #{format.bright_cyan.bold("'#{current_patch}'")}")
+      logger.end("Finished running: #{bbc(current_patch)}")
       puts
       ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
       elapsed = ending - @time_start
-      logger.success("Successfully generated '#{current_patch}' in #{elapsed.round(4)} seconds")
+      logger.success("Successfully generated #{bbg(current_patch)} in #{bold(elapsed.round(4))} seconds")
     end
 
     private

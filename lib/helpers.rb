@@ -45,6 +45,28 @@ module Kzen
       end
 
 
+      #### FORMAT HELPERS
+
+      def bold_bright_green(str)
+        format.bold.bright_green("'#{str}'")
+      end
+      alias_method :bbg, :bold_bright_green
+
+      def bold_bright_red(str)
+        format.bold.bright_red("'#{str}'")
+      end
+      alias_method :bbr, :bold_bright_red
+
+      def bold_bright_cyan(str)
+        format.bold.bright_cyan("'#{str}'")
+      end
+      alias_method :bbc, :bold_bright_cyan
+
+      def bold(str)
+        format.bold(str)
+      end
+
+
       #### GIT HELPERS
 
       def git?
@@ -84,7 +106,7 @@ module Kzen
         if patch_exists?(path)
           apply(patch_path(path), debug_opts.merge(opts))
         else
-          logger.error("No patch found to run with [#{format.bold.bright_red(path)}]", path, patch_path(path))
+          logger.error("No patch found to run with [#{bbr(path)}]", path, patch_path(path))
         end
       end
       alias_method :run_patch, :patch_run
@@ -113,7 +135,7 @@ module Kzen
         if prompt_exists?(path)
           apply(prompt_path(path), debug_opts)
         else
-          logger.error("No prompt found to run with [#{format.bold.bright_red(path)}]", path, prompt_path(path))
+          logger.error("No prompt found to run with [#{bbr(path)}]", path, prompt_path(path))
         end
       end
       alias_method :run_prompt, :prompt_run
