@@ -5,6 +5,7 @@ require 'thor'
 require 'tty-prompt'
 require 'tty-config'
 require 'tty-logger'
+require 'pastel'
 require 'active_support/all'
 
 
@@ -75,6 +76,10 @@ module Kzen
           }]
         ]
       end
+    end
+
+    def format
+      @pastel = Pastel.new
     end
 
     desc "Description:\n\n\t'kzen laravel [patch.name] [vars]' applies the patch in the current directory"
