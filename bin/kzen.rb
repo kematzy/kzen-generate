@@ -119,12 +119,10 @@ module Kzen
       @source_path          = "#{Kzen::Laravel.source_root}/#{source}"
       @dest_path            = File.expand_path(`pwd`.chomp)
 
-
       @out_verbose          = options[:debug] ? true : false
       @out_capture          = options[:debug] ? false : true
 
-      # @patch                = @args.shift
-
+      # @patch                = patch
       @patch_name           = patch.split(':').last
       @namespaced_path      = patch.tr(":", "/")
 
@@ -132,11 +130,10 @@ module Kzen
       @author_email         = `git config user.email`.chomp
       @year                 = Time.now.strftime('%Y')
 
-      # say "\n"
-      # say_status :start, "#{source} #{@patch}"
+      ###########
 
-      # say "self.inspect [#{Kzen::Laravel.source_root}]"
-      # say "self.inspect [#{self.inspect}]"
+      logger.debug "Kzen::Laravel.source_root [#{Kzen::Laravel.source_root}]"
+      logger.debug "self.inspect [#{self.inspect}]"
 
       # we look for the patch first, if NOT found give a list of available patches
       if File.exist?("#{@source_path}/#{@namespaced_path}.patch.rb")
@@ -144,19 +141,18 @@ module Kzen
           # say "\nYES: that patch was found [#{@source_path}/#{@namespaced_path}.patch.rb]"
           apply("#{@source_path}/#{@namespaced_path}.patch.rb", verbose: false)
         rescue Exception => e
-          say "Error: [ #{e.inspect} ]"
+          logger.error("Error: [ #{e.inspect} ]")
         end
 
       else
-        say_status :error, "No such patch [ #{patch} ] found.", :red
-        say_status :info, "-- Available patches are:"
+        logger.fatal("No such patch [ #{format.bold.red(patch)} ] found.")
+        puts
+        logger.warn("Available patches are:")
 
         Dir["#{@source_path}/**/*.patch.rb"].each do |f|
-          say_status :info, "-- #{f.sub("#{@source_path}/", '').sub('.patch.rb', '').gsub('/', ':')}"
+          logger.warn("-- #{format.bold.bright_green(patch_str(f))}")
         end
-
-        say_status :info, "-- Terminated execution", :red
-        exit
+        logger.warn("Terminated execution")
       end
     end
 
