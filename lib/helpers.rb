@@ -90,7 +90,7 @@ module Kzen
           # we are using git and it's dirty
           run("git add . ", debug_opts)
           run("git commit -m '#{@patch}: #{message}'", debug_opts)
-          logger.git(message, @patch)
+          logger.git("#{@patch}: #{message}")
         elsif git?
           # using git, but not dirty, so log info
           logger.git('no changes to commit', @patch) unless silent

@@ -19,7 +19,7 @@ module Kzen
 
       def composer_install(package)
         run("composer require #{package}", debug_opts)
-        git_commit("#{@patch}: composer require #{package}")
+        git_commit("composer require #{package}")
         logger.success("installed #{package} package")
       end
 
@@ -28,7 +28,7 @@ module Kzen
 
       def artisan_migrate(silent = nil)
         run("php artisan migrate", debug_opts)
-        git_commit("#{@patch}: php artisan migrate", silent) if git_dirty?
+        git_commit("php artisan migrate", silent) if git_dirty?
         logger.success("ran artisan migrate")
       end
 
