@@ -1,8 +1,9 @@
 #!/usr/bin/env ruby
 require "rubygems" # ruby1.9 doesn't "require" it though
 require 'fileutils'
-require "thor"
-require "tty-prompt"
+require 'thor'
+require 'tty-prompt'
+require 'tty-config'
 require 'active_support/all'
 
 
@@ -25,6 +26,14 @@ module Kzen
       @prompt ||= TTY::Prompt.new(help_color: :blue)
     end
 
+    def confs
+      @configs ||= TTY::Config.new do |c|
+        c.filename = "kzen.config"
+        c.extname = ".yml"
+        # c.append_path Dir.pwd
+        c.append_path Dir.home
+      end
+    end
     desc "Description:\n\n\t'kzen laravel [patch.name] [vars]' applies the patch in the current directory"
 
     argument :source, desc: 'The source directory name'
