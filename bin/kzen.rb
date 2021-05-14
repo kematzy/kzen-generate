@@ -8,6 +8,7 @@ require 'tty-logger'
 require 'pastel'
 require 'active_support/all'
 require_relative '../lib/helpers'
+require_relative '../lib/laravel_helpers'
 
 
 module Kzen
@@ -15,6 +16,7 @@ module Kzen
   class Laravel < Thor::Group
     include Thor::Actions
     include Kzen::Helpers
+    include Kzen::LaravelHelpers
 
     # Define the source template root
     def self.source_root
@@ -177,15 +179,6 @@ module Kzen
 
       def tmpl_file(path)
         "#{@source_path}/_templates/#{path}"
-      end
-
-
-      ##### LARAVEL RELATED METHODS #####
-
-      def composer_install(package)
-        run("composer require #{package}", debug_opts)
-        git_commit("#{@patch}: composer require #{package}")
-        logger.success("installed #{package} package")
       end
 
   end
