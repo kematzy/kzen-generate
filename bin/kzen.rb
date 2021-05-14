@@ -100,11 +100,22 @@ module Kzen
     # handle errors better
     def self.exit_on_failure?; true; end
 
+
+    def start
+      @time_start = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+      puts
+      logger.begin("Started running: #{format.bright_cyan.bold("'#{current_patch}'")}")
+      puts
+    end
+
+
+    def read_configs
+
+    end
+
+
     def setup_patch
       # self.destination_root = File.expand_path(File.join(options[:root]))
-
-      # @project_name     = name
-
       @source_path          = "#{Kzen::Laravel.source_root}/#{source}"
       @dest_path            = File.expand_path(`pwd`.chomp)
 
@@ -151,7 +162,12 @@ module Kzen
 
     # Finish message
     def finish
-      say_status :end, "#{source} #{@patch}"
+      puts
+      logger.end("Finished running: #{format.bright_cyan.bold("'#{current_patch}'")}")
+      puts
+      ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
+      elapsed = ending - @time_start
+      logger.success("Successfully generated '#{current_patch}' in #{elapsed.round(4)} seconds")
     end
 
     private
