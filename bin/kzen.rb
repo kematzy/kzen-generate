@@ -4,6 +4,7 @@ require 'fileutils'
 require 'thor'
 require 'tty-prompt'
 require 'tty-config'
+require 'tty-logger'
 require 'active_support/all'
 
 
@@ -34,6 +35,48 @@ module Kzen
         c.append_path Dir.home
       end
     end
+
+    def logger
+      @logger = TTY::Logger.new do |config|
+        config.types = {
+          git:   { level: :info },
+          db:    { level: :info },
+          begin: { level: :info },
+          end:   { level: :info },
+        }
+        config.handlers = [
+          [:console, {
+            styles: {
+              git: {
+                symbol: " ✱ ",
+                label: "git",
+                color: :yellow,
+                levelpad: 6
+              },
+              db: {
+                symbol: " ≡ ",
+                label: "db",
+                color: :bright_magenta,
+                levelpad: 7
+              },
+              begin: {
+                symbol: " » ",
+                label: "begin",
+                color: :cyan,
+                levelpad: 4
+              },
+              end: {
+                symbol: " « ",
+                label: "end",
+                color: :cyan,
+                levelpad: 6
+              },
+            }
+          }]
+        ]
+      end
+    end
+
     desc "Description:\n\n\t'kzen laravel [patch.name] [vars]' applies the patch in the current directory"
 
     argument :source, desc: 'The source directory name'
