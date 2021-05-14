@@ -7,13 +7,14 @@ require 'tty-config'
 require 'tty-logger'
 require 'pastel'
 require 'active_support/all'
-
+require_relative '../lib/helpers'
 
 
 module Kzen
 
   class Laravel < Thor::Group
     include Thor::Actions
+    include Kzen::Helpers
 
     # Define the source template root
     def self.source_root
@@ -136,14 +137,12 @@ module Kzen
       logger.debug "self.inspect [#{self.inspect}]"
 
       # we look for the patch first, if NOT found give a list of available patches
-      if File.exist?("#{@source_path}/#{@namespaced_path}.patch.rb")
+      if patch_exists?(@namespaced_path)
         begin
-          # say "\nYES: that patch was found [#{@source_path}/#{@namespaced_path}.patch.rb]"
-          apply("#{@source_path}/#{@namespaced_path}.patch.rb", verbose: false)
+          patch_run(@namespaced_path, verbose: false)
         rescue Exception => e
           logger.error("Error: [ #{e.inspect} ]")
         end
-
       else
         logger.fatal("No such patch [ #{format.bold.red(patch)} ] found.")
         puts
@@ -168,49 +167,27 @@ module Kzen
 
     private
 
-      def debug_opts
-        if options[:debug]
-          { verbose: true, capture: false }
-        else
-          { verbose: false, capture: true }
-        end
+      def current_patch
+        "#{source} #{@patch}"
       end
 
-      def verbose_opts(opts = {})
-        if options[:debug]
-          { verbose: true }.merge(opts)
-        else
-          { verbose: false }.merge(opts)
-        end
+      def patch_str(f)
+        f.sub("#{@source_path}/", '').sub('.patch.rb', '').gsub('/', ':')
       end
-
-      def if_verbose
-        options[:debug] ? true : false
-      end
-
-      def if_capture
-        options[:debug] ? false : true
-      end
-
-      def git_commit(message)
-        if git_dirty?
-          run("git add . ", debug_opts) if options[:git]
-          run("git commit -m '#{message}'", debug_opts) if options[:git]
-          say_status :git, "commit: #{message}", :yellow
-        else
-          say_status :git, 'no changes to commit', :yellow
-        end
-      end
-
-      def git_dirty?
-        res = `git status`
-        res =~ /nothing to commit, working tree clean/ ? false : true
-      end
-
 
       def tmpl_file(path)
         "#{@source_path}/_templates/#{path}"
       end
+
+
+      ##### LARAVEL RELATED METHODS #####
+
+      def composer_install(package)
+        run("composer require #{package}", debug_opts)
+        git_commit("#{@patch}: composer require #{package}")
+        logger.success("installed #{package} package")
+      end
+
   end
 end
 
