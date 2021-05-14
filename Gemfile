@@ -17,6 +17,8 @@ source "https://rubygems.org"
 gem 'thor'
 gem 'tty-config'
 gem 'tty-prompt'
+gem 'tty-logger'
+gem 'pastel'
 gem 'activesupport'
 
 group :development do

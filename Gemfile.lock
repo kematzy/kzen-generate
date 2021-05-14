@@ -18,6 +18,8 @@ GEM
     tty-color (0.6.0)
     tty-config (0.4.0)
     tty-cursor (0.7.1)
+    tty-logger (0.6.0)
+      pastel (~> 0.8)
     tty-prompt (0.23.1)
       pastel (~> 0.8)
       tty-reader (~> 0.8)
@@ -33,13 +35,16 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   activesupport
   minitest
+  pastel
   rake
   thor
   tty-config
+  tty-logger
   tty-prompt
 
 BUNDLED WITH
