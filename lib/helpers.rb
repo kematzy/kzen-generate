@@ -53,17 +53,27 @@ module Kzen
       alias_method :using_git?, :git?
 
       def git_dirty?
-        res = `git status`
-        res =~ /nothing to commit, working tree clean/ ? false : true
+        if git?
+          # using git, so test for status
+          res = `git status`
+          res =~ /nothing to commit, working tree clean/ ? false : true
+        else
+          # not using git
+          false
+        end
       end
 
-      def git_commit(message)
+      def git_commit(message, silent = nil)
         if git_dirty?
-          run("git add . ", debug_opts) if git?
-          run("git commit -m '#{@patch}: #{message}'", debug_opts) if git?
+          # we are using git and it's dirty
+          run("git add . ", debug_opts)
+          run("git commit -m '#{@patch}: #{message}'", debug_opts)
           logger.git(message, @patch)
+        elsif git?
+          # using git, but not dirty, so log info
+          logger.git('no changes to commit', @patch) unless silent
         else
-          logger.git('no changes to commit', @patch)
+          # do nothing, not using git
         end
       end
 
