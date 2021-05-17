@@ -135,6 +135,19 @@ module Kzen
       end
       alias_method :run_prompt, :prompt_run
 
+      def set_current_prompt(p)
+        @current_prompt = p
+      end
+
+      def prompt_start(custom = nil)
+        c = custom.nil? ? @current_prompt : custom
+        logger.begin("prompt: #{dc(c)}")
+      end
+
+      def prompt_end(custom = nil)
+        c = custom.nil? ? @current_prompt : custom
+        logger.end("prompt: #{dc(c)}")
+      end
 
   end
 

@@ -1,11 +1,15 @@
 # prompts:  laravel db
 
+
+set_current_prompt 'db'
+
 puts
-logger.debug("start prompt: #{current_patch}")
+prompt_start
+
 
 # check if we have db.type already defined
 db = confs.fetch('db.type')
-say_status :debug, "db is =>: #{db.inspect}"
+logger.debug("db is =>: #{db.inspect}")
 # db: can either be:
 #   1) nil (nothing here)
 #   2) a string (sqlite)
@@ -56,5 +60,5 @@ logger.debug("set db to: #{confs.fetch(:db)}")
 
 
 
+prompt_end
 puts
-logger.debug("end prompt: #{current_patch}")
