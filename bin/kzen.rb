@@ -117,7 +117,10 @@ module Kzen
 
 
     def read_configs
-
+      confs.append_path(Dir.pwd)
+      confs.read
+      logger.info "kzen.config.yml: (db) [#{confs.fetch('db')}] "
+      logger.info "kzen.config.yml: (features) [#{confs.fetch('features')}] "
     end
 
 
