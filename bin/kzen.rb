@@ -196,6 +196,10 @@ module Kzen
         "#{@source_path}/_templates/#{path}"
       end
 
+      def tmpl_dir(path)
+        "#{@source_path}/_templates/#{path}"
+      end
+
   end
 end
 
