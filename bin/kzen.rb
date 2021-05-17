@@ -111,8 +111,8 @@ module Kzen
     def start
       @time_start = Process.clock_gettime(Process::CLOCK_MONOTONIC)
       puts
-      logger.begin("Started running: #{bbc(current_patch)}")
-      puts
+      logger.begin("Started running: #{dc(current_patch)}")
+      # puts
     end
 
 
@@ -140,7 +140,7 @@ module Kzen
       ###########
 
       logger.debug "Kzen::Laravel.source_root [#{Kzen::Laravel.source_root}]"
-      logger.debug "self.inspect [#{self.inspect}]"
+      logger.debug "Kzen::Laravel self.inspect [#{self.inspect}]"
 
       # we look for the patch first, if NOT found give a list of available patches
       if patch_exists?(@namespaced_path)
@@ -163,18 +163,26 @@ module Kzen
 
     # Finish message
     def finish
-      puts
-      logger.end("Finished running: #{bbc(current_patch)}")
+      # puts
+      logger.end("Finished running: #{dc(current_patch)}")
       puts
       ending = Process.clock_gettime(Process::CLOCK_MONOTONIC)
       elapsed = ending - @time_start
-      logger.success("Successfully generated #{bbg(current_patch)} in #{bold(elapsed.round(4))} seconds")
+      logger.success("Successfully generated #{dc(current_patch)} in #{bold(elapsed.round(4))} seconds")
     end
 
     private
 
       def current_patch
         "#{source} #{@patch}"
+      end
+
+      def patch_id(patch)
+        "patch: #{dc(patch)}"
+      end
+
+      def prompt_id(patch)
+        "prompt: #{dc(patch)}"
       end
 
       def patch_str(f)

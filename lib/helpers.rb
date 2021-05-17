@@ -82,6 +82,7 @@ module Kzen
 
       def patch_run(path, opts={})
         if patch_exists?(path)
+          @active_patch = path
           apply(patch_path(path), debug_opts.merge(opts))
         else
           logger.error("No patch found to run with [#{bbr(path)}]", path, patch_path(path))
@@ -97,6 +98,19 @@ module Kzen
         "#{@source_path}/#{path.gsub(':', '/')}.patch.rb"
       end
 
+      def set_current_patch(p = nil)
+        @current_patch = p.nil? ? @patch : p
+      end
+
+      def patch_start(custom = nil)
+        c = custom.nil? ? @current_patch : custom
+        logger.begin("patch: #{dc(c)}")
+      end
+
+      def patch_end(custom = nil)
+        c = custom.nil? ? @current_patch : custom
+        logger.end("patch: #{dc(c)}")
+      end
 
       #### PROMPT HELPERS
 
