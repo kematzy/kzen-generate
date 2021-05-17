@@ -39,6 +39,9 @@ inside @project_name do
   # 5) Features: Add Tailwind support (including: Stylelint, BrowserSync)
   run_patch('css:tailwind') if confs.fetch('features.css.tailwind')
 
+  # 6) Features: Add Telescope support (including: Telescope Toolbar)
+  run_patch('dev:telescope') if confs.fetch('features.dev.telescope')
+
   # then save the configs
   confs.write
 end
