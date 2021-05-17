@@ -1,0 +1,52 @@
+//* begin: <%= @project_name %>/resources/scss/kzen/mixins.scss */
+
+//* begin: custom functions */
+
+// Slightly lighten a color
+// @access public
+// @param {Color} $color - color to tint
+// @param {Number} $percentage - percentage of `$color` in returned color
+// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+// Slightly darken a color
+// @access public
+// @param {Color} $color - color to shade
+// @param {Number} $percentage - percentage of `$color` in returned color
+// @return {Color}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+@function is-map($var){
+  @return type-of($var) == "map";
+}
+
+@function kzen-var($key) {
+  @return unquote('var(--kzen-#{$key})');
+}
+
+@function kzen-mix($color1, $color2, $weight: 50%) {
+  @return mix($color1, $color2, $weight);
+}
+
+@function kzen-color($theme: 'light', $keys: 'primary') {
+  @return map-get($themes, $theme, $keys);
+}
+
+@function set-var-name($key) {
+  @return '--kzen-#{$key}';
+}
+
+@function kzen-set-css-var($key, $value) {
+  @return '#{set-var-name($key)}: #{$value}';
+}
+
+//* /end: custom functions */
+
+
+
+//* /end: <%= @project_name %>/resources/scss/kzen/mixins.scss */

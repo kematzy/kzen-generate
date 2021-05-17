@@ -1,0 +1,319 @@
+//* begin: <%= @project_name %>/resources/scss/admin/_theme.scss */
+
+@import "../kzen/mixins.scss";
+
+//* begin: global shared variables */
+
+$kzen-card-padding: 1rem !default;
+
+$kzen-header-height: 3rem !default;
+$kzen-footer-height: 2rem !default;
+
+$kzen-sidebar-width: 15rem !default;
+$kzen-sidebar-width-thin: 4rem !default;
+
+$kzen-scrollbar-width: 10px !default;
+$kzen-scrollbar-height: 6px !default;
+$kzen-scrollbar-border-radius: 3px !default;
+
+$kzen-z-admin-header: 100 !default;
+
+//* /end: global shared variables */
+
+//* begin: global colour variables */
+
+$kzen-light-base: #fff;
+$kzen-dark-base: #141416;
+
+$kzen-light-base: darken(#fff, 5);
+
+
+//* /end: global colour variables */
+
+
+//* begin: Theme Configuration */
+
+$themes: (
+  // contains general structure (no colours!!)
+  root: (
+    card-padding: $kzen-card-padding,
+
+    header-height: $kzen-header-height,
+
+    sidebar-width: $kzen-sidebar-width,
+    sidebar-width-thin: $kzen-sidebar-width-thin,
+
+    footer-height: $kzen-footer-height,
+
+    scrollbar-width: $kzen-scrollbar-width,
+    scrollbar-height: $kzen-scrollbar-height,
+    scrollbar-border-radius: $kzen-scrollbar-border-radius,
+
+    z-admin-header: $kzen-z-admin-header,
+  ),
+
+  // light mode:
+  light: (
+    // 'bg': #f3f4f5,
+    bg: rgb(243, 244, 245),
+    bg-secondary: #fff,
+    bg-hover: rgba(226,218, 218, .22),
+
+    border: (
+      color: #ddd,
+      // light: 1px solid rgba(0, 0, 0, 0.0625),
+      light: 1px solid rgba(150, 150, 150, 0.125),
+    ),
+
+    card: (
+      bg: #ffffff,
+      // header: var(--kzen-color-secondary),
+      // border: var(--kzen-border-light),
+      border: 1px solid rgba(230, 230, 230, 0.9),
+
+      header-bg: rgba(245, 250, 250, 1),
+      header-color: rgba(88, 99, 250, 1),
+
+      footer-bg: rgba(250, 252, 250, 0.5),
+      footer-color: rgba(88, 99, 250, 1),
+    ),
+
+    color: (
+      primary:      #901fdb,
+      secondary:    #c2a4cf,
+      success:      #2eb85c,
+      warning:      #f9b115,
+      danger:       #e55353,
+      info:         #3399ff,
+      light:        #ebedef,
+      dark:         #636f83,
+      selection:    rgba(190, 101, 101, 0.1),
+    ),
+
+    foreground: #444,
+
+    error: (
+      text: rgba(220, 38, 38, 1),
+      border: 1px solid rgba(220, 38, 38, 0.4),
+    ),
+
+    link: #666,
+    link-hover: rgb(19, 42, 107),
+
+    header: (
+      bg: #fff,
+      color: rgb(140, 150, 170),
+      link: rgb(130, 142, 160),
+      // border-bottom: var(--kzen-border-light),
+      border-bottom: 1px solid var(--kzen-header-bg),
+    ),
+
+    dropdown: (
+      header: rgba(96, 45, 135, 0.4),
+      hover: rgba(96, 45, 135, 0.05),
+      divider: 1px solid rgba(150, 150, 150, 0.25),
+    ),
+
+    overlay: (
+      // bg:rgba(243, 244, 246, 0.95),
+      // border: 1px solid rgba(209, 213, 219, 0.5),
+      bg: var(--kzen-header-bg),
+      border: 1px solid rgba(150, 150, 150, 0.1),
+    ),
+
+    sidebar: (
+      bg: #fff,
+      // border-right: var(--kzen-border-light),
+      border-right: 1px solid var(--kzen-sidebar-bg),
+      logo-border-bottom: 1px solid var(--kzen-sidebar-bg),
+      // link-active-bg: var(--kzen-bg-secondary),
+      link-active-bg: var(--kzen-admin-main-bg),
+      link-active: var(--kzen-color-primary),
+      icon: var(--kzen-color-secondary),
+      icon-active: var(--kzen-color-primary),
+      // foreground: #888,
+    ),
+
+    // table
+    table: (
+      // background
+      bg: #fff,
+      // header
+      // header-foreground: rgba(144, 31, 219, 0.4),
+      header-foreground: rgba(96, 45, 135, 0.75),
+      // td
+      tr-hover: #f9fafb,
+      tr-odd: rgba(249, 250, 251, 0.4),
+      // tr-odd: #f9fafb,
+      // tr-odd-hover: rgba(249, 250, 251, 0.5),
+      // tr-odd-hover: rgba(96, 45, 135, 0.1),
+    ),
+
+    pagination: (
+      //
+      bg: rgba(249, 250, 251, 0.5),
+
+      // the default foreground text
+      foreground: #666,
+      foreground-disabled: #888,
+      foreground-hover: #efefef,
+
+      // the pagination button borders
+      border: 1px solid rgba(150, 150, 150, 0.1),
+
+      active-border: 1px solid rgba(159, 22, 184, 0.2),
+      active-foreground: #901fdb,
+    ),
+
+    footer: (
+      bg: #fff,
+      foreground: rgb(199, 201, 202),
+      border-top: var(--kzen-border-light),
+      link: rgb(152, 159, 177),
+    ),
+
+    admin: (
+      main-bg: #f7fafc,
+    ),
+
+    scrollbar: (
+      track: var(--kzen-bg),
+      thumb: rgb(223, 224, 225),
+      thumb-hover: rgb(183, 184, 185),
+    ),
+  ),
+
+  // ### DARK MODE ####
+  dark: (
+    foreground: #ababab,
+    link: rgb(89, 120, 145),
+    // link-hover: rgb(175, 125, 18),
+    link-hover: var(--kzen-color-primary),
+
+    bg: rgb(9, 26, 40),
+    // bg-secondary:rgb(15, 40, 63),
+    bg-secondary:#091c2b,
+    bg-hover: rgba(226,218, 218, .22),
+
+    border: (
+      color: #0d2538,
+      // light: 1px solid rgba(10, 34, 54, 0.625),
+      // light: 1px solid rgba(150, 150, 150, 0.225),
+      // light: 1px solid rgba(100, 100, 100, 0.14),
+      light: 1px solid rgba(100, 100, 100, 0.6),
+    ),
+
+    color: (
+      primary:   #901fdb,
+      secondary: #b583ca,
+      success:   #2eb85c,
+      warning:   #f9b115,
+      danger:    #e55353,
+      info:      #3399ff,
+      light:     #c4c9d0,
+      dark:      #636f83,
+      selection: rgba(190, 101, 101, 0.1),
+    ),
+
+    card: (
+      bg: var(--kzen-bg-secondary),
+      // border: var(--kzen-border-light),
+      border: 1px solid rgba(100, 100, 100, 0.24),
+
+      header-bg: rgba(18, 33, 51, 0.9),
+      header-foreground: rgba(150, 150, 150, 1),
+
+      footer-bg: rgba(27, 48, 71, 0.5),
+      footer-foreground: rgba(88, 99, 250, 1),
+    ),
+
+    error: (
+      text: rgba(220, 38, 38, 1),
+      border: 1px solid rgba(220, 38, 38, 0.4),
+    ),
+
+    header: (
+      // bg: rgb(31, 34, 46),
+      bg: var(--kzen-bg),
+      foreground: rgb(90, 95, 105),
+      // link: rgb(120, 130, 145),
+      link: var(--kzen-link),
+      border-bottom: var(--kzen-border-light),
+    ),
+
+    dropdown: (
+      header: rgba(89, 120, 145, 0.8),
+      hover: rgba(96, 45, 135, 0.15),
+      divider: 1px solid rgba(29, 34, 66, 0.9),
+    ),
+
+    overlay: (
+      // bg:rgba(243, 244, 246, 0.95),
+      bg: var(--kzen-header-bg),
+      // border: 1px solid rgba(209, 213, 219, 0.5),
+      border: 1px solid rgba(29, 34, 66, 0.2),
+    ),
+
+    sidebar: (
+      // bg: rgb(32, 34, 46),
+      bg:var(--kzen-bg),
+      border-right: var(--kzen-border-light),
+      logo-border-bottom: 1px solid var(--kzen-border-light),
+      // border-right: 1px solid red,
+      // link-active-bg: var(--kzen-bg-secondary),
+      link-active-bg: var(--kzen-admin-main-bg),
+      link-active: var(--kzen-color-primary),
+      icon: var(--kzen-color-secondary),
+      icon-active: var(--kzen-color-primary),
+      // foreground: rgb(112, 112, 112),
+    ),
+
+    // table
+    table: (
+      // background
+      bg: #091c2b,
+      // header
+      // header-foreground: rgba(144, 31, 219, 0.4),
+      header-foreground: rgba(96, 45, 135, 0.75),
+      // td
+      tr-hover: rgba(226,218, 218, .22),
+      tr-odd: rgba(226,218, 218, .14),
+    ),
+
+    pagination: (
+      // the default foreground text
+      foreground: #bababa,
+      foreground-disabled: #666,
+      foreground-hover: #efefef,
+      // the pagination button borders
+      border: 1px solid rgba(100, 100, 100, 0.24),
+
+      active-border: 1px solid rgba(203, 121, 218, 0.3),
+      active-foreground: rgba(233, 112, 255, 0.8),
+    ),
+
+    footer: (
+      bg: var(--kzen-bg),
+      foreground: rgb(58, 70, 93),
+      border-top: var(--kzen-border-light),
+      link: rgb(81, 97, 121),
+    ),
+
+    admin: (
+      // main-bg: rgb(35, 38, 47),
+      // main-bg: #091d2c,
+      // main-bg: tint(rgb(9, 26, 40), 3),
+      main-bg: tint(rgb(9, 26, 40), 2),
+    ),
+
+    scrollbar: (
+      track: var(--kzen-bg),
+      thumb:  rgb(19, 36, 50),
+      thumb-hover: rgb(20, 42, 66),
+    ),
+  )
+);
+
+//* /end: Theme Configuration */
+
+//* /end: <%= @project_name %>/resources/scss/admin/_theme.scss */

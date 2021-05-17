@@ -1,0 +1,60 @@
+//* begin: <%= @project_name %>/resources/scss/app.scss */
+
+@import "app/_theme.scss";
+
+//* begin: global custom variables */
+
+:root {
+    @each $key, $value in map-get($themes, 'root') {
+      --kzen-#{$key}: #{$value};
+    }
+  }
+
+  .light-mode {
+    @each $key, $value in map-get($themes, 'light') {
+      @if type-of($value) == "string" {
+        --kzen-#{$key}: #{$value};
+      } @else if type-of($value) == "map" {
+        @each $k, $v in map-get($themes, 'light', $key) {
+          --kzen-#{$key}-#{$k}: #{$v};
+        }
+      } @else {
+        --kzen-#{$key}: #{$value};
+      }
+    }
+  }
+
+  .dark-mode {
+    @each $key, $value in map-get($themes, 'dark') {
+      @if type-of($value) == "string" {
+        --kzen-#{$key}: #{$value};
+      } @else if type-of($value) == "map" {
+        @each $k, $v in map-get($themes, 'dark', $key) {
+          --kzen-#{$key}-#{$k}: #{$v};
+        }
+      } @else {
+        --kzen-#{$key}: #{$value};
+      }
+    }
+  }
+
+//* /end: global custom variables */
+
+//* begin: imports */
+
+@import "tailwind.scss";
+
+@layer components {
+
+  @import "kzen/scrollbars.scss";
+  @import "kzen/animations.scss";
+  @import "kzen/globals.scss";
+
+  // insert additional imports here
+}
+
+@import "kzen/debug.scss";
+
+//* /end: imports */
+
+//* /end: <%= @project_name %>/resources/scss/app.scss */

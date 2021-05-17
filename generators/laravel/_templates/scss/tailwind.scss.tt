@@ -1,0 +1,7 @@
+//* begin: <%= @project_name %>/resources/scss/tailwind.scss */
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+//* /end: <%= @project_name %>/resources/scss/tailwind.scss */

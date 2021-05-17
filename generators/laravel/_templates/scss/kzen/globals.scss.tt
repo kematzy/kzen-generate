@@ -1,0 +1,106 @@
+//* begin: <%= @project_name %>/resources/scss/kzen/globals.scss */
+
+//* begin: selection */
+
+::selection {
+  background-color: var(--kzen-color-selection);
+}
+
+//* /end: selection */
+
+
+body {
+  @apply font-sans antialiased;
+  background-color: var(--kzen-bg);
+  color: var(--kzen-foreground);
+  overflow-x: hidden;
+}
+
+//* begin: links formatting */
+
+a {
+  color: var(--kzen-link);
+
+  &:hover {
+    color: var(--kzen-link-hover);
+  }
+}
+
+.nav-link {
+  color: var(--kzen-link);
+  font-size: 1.25rem;
+  font-weight: 500;
+  line-height: 3rem;;
+
+  &.active,
+  &:hover {
+    color: var(--kzen-link-hover);
+  }
+
+  &.active {
+    border-left: 3px solid var(--kzen-link);
+    padding-left: .5rem;
+  }
+}
+
+.nav-action {
+  @apply px-2 text-2xl text-gray-300;
+}
+
+//* /end: links formatting */
+
+
+//* begin: headers */
+
+h1,
+h2,
+h3,
+h4 {
+  @apply mt-4 font-normal;
+}
+
+h1,
+.h1 {
+  @apply text-4xl mb-2;
+}
+
+h2,
+.h2 {
+  @apply text-3xl mb-2;
+}
+
+h3,
+.h3 {
+  @apply text-2xl mb-2;
+}
+
+h4,
+.h4 {
+  @apply text-lg mb-2;
+}
+
+//* /end: headers */
+
+
+//* begin: typography */
+
+strong,
+b {
+  font-weight: 500;
+}
+
+//* Standardise formatting of paragraphs */
+p {
+  margin-bottom: 1rem;
+}
+
+// remove formatting on abbreviations
+abbr[title] {
+  cursor: help;
+  text-decoration: none;
+}
+
+//* /end: typography */
+
+
+//* /end: <%= @project_name %>/resources/scss/kzen/globals.scss */
