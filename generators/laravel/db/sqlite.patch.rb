@@ -1,11 +1,10 @@
 # set up a SQLite db in a [new] Laravel project
 
+set_current_patch 'db:sqlite' # current patch
 
 puts
-logger.begin("patch: db:sqlite")
+patch_start
 
-confs.append_path(Dir.pwd)
-confs.read
 
 logger.debug "db =>  [#{confs.fetch('db').inspect}]"
 
@@ -35,5 +34,5 @@ git_commit('db:sqlite: configured SQLite DB setup')
 logger.info "committed db:sqlite setup"
 
 
-logger.end("patch: db:sqlite")
+patch_end
 puts

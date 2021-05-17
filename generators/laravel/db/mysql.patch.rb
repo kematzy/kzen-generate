@@ -6,13 +6,13 @@
 # 2) create the postgres database
 # 3) migrate database
 
+set_current_patch 'db:mysql'
+
 puts
-logger.begin("patch: db:mysql")
+patch_start
 
-confs.append_path(Dir.pwd)
-confs.read
 
-logger.debug "db =>  [#{confs.fetch('db').inspect}]"
+logger.debug("db => [#{confs.fetch('db').inspect}]")
 
 replace_in_file('.env', [
   { find: 'DB_CONNECTION=mysql',  replace: "DB_CONNECTION=#{confs.fetch('db.type')}" },
@@ -72,5 +72,6 @@ logger.success "created mysql DB file"
 artisan_migrate "migrated DB"
 
 
-logger.end("patch: db:mysql")
+# patch_end
+patch_end
 puts

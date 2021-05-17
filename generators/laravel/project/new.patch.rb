@@ -1,9 +1,10 @@
 # create a new Laravel project and set it up
 
-# say "\n"
-# say_status 'laravel:project:new', "--> start"
-puts
-logger.begin(current_patch)
+set_current_patch 'project:new'
+
+# puts
+patch_start
+
 
 # test for config variables or load prompts
 if File.exists?("#{Dir.pwd}/kzen.config.yaml")
@@ -53,5 +54,6 @@ inside @project_name do
 
 end
 
+
 puts
-logger.end(current_patch)
+patch_end

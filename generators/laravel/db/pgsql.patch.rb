@@ -19,14 +19,9 @@
 # Enter password for new role: 123456
 # Enter it again: 123456
 
+set_current_patch 'db:pgsql' # current patch
+
 puts
-logger.begin('patch: db:pgsql')
-
-confs.append_path(Dir.pwd)
-confs.read
-
-logger.debug "db =>  [#{confs.fetch('db').inspect}]"
-
 replace_in_file('.env', [
     { find: 'DB_CONNECTION=mysql',  replace: "DB_CONNECTION=#{confs.fetch('db.type')}" },
     { find: 'DB_HOST=127.0.0.1',    replace: "DB_HOST=#{confs.fetch('db.host')}" },
@@ -36,7 +31,16 @@ replace_in_file('.env', [
     { find: 'DB_PASSWORD=',         replace: "DB_PASSWORD=#{confs.fetch('db.password')}", },
   ],
   'added PostgreSQL DB configs'
+patch_start
+
+
+logger.debug("db => [#{confs.fetch('db').inspect}]")
+
 )
+
+patch_end
+puts
+
 
 # gsub_file('.env',
 #   'DB_CONNECTION=mysql',
@@ -73,6 +77,3 @@ logger.success, "created #{confs.fetch('db.database')} DB in PostgreSQL"
 
 artisan_migrate 'migrated DB'
 
-
-logger.end('patch: db:pgsql')
-puts
