@@ -33,6 +33,9 @@ inside @project_name do
   # 3) Add DB setup
   run_patch("db:#{confs.fetch('db.type')}") if confs.fetch('db')
 
+  # 4) Ensure DB Sessions support
+  run_patch('db:sessions') if confs.fetch('db')
+
   # then save the configs
   confs.write
 end
