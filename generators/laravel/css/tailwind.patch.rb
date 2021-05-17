@@ -96,6 +96,8 @@ directory(tmpl_dir('scss'), 'resources/scss', verbose_opts)
 git_commit('tailwind: added core SCSS files')
 logger.success "added core SCSS files"
 
+# setup StyleLint support
+patch_run('css:stylelint') if confs.fetch('features.css.stylelint')
 
 # TODO:  fails at this position with 'resolve-url-loader' un-committed as a npm package
 

@@ -1,0 +1,27 @@
+{
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "postcss.validate": false,
+  "files.associations": {
+    "*.css": "postcss"
+  },
+  "[php]": {
+    "editor.tabSize": 2
+  },
+  "[blade]": {
+    "editor.tabSize": 2
+  },
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "stylelint.enable": true,
+  "stylelint.validate": [
+    "css",
+    "scss",
+    "postcss"
+  ],
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "javascript.format.enable": false
+}
