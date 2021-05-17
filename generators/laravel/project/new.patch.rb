@@ -42,6 +42,9 @@ inside @project_name do
   # 6) Features: Add Telescope support (including: Telescope Toolbar)
   run_patch('dev:telescope') if confs.fetch('features.dev.telescope')
 
+  # 7) Features: Add Ray Debug support (including: none)
+  run_patch('dev:ray') if confs.fetch('features.dev.ray')
+
   # then save the configs
   confs.write
 end
