@@ -24,13 +24,12 @@ insert_into_file(
 )
 logger.info "added SQLite DB configs"
 
-run("touch #{db_fullpath}", debug_opts)
-logger.success "created SQLite DB file"
+db_sqlite_create('database')
 
 artisan_migrate "migrated DB"
 
 append_to_file('.gitignore', "\n\n# ignore SQLite DBs\n*.sqlite", verbose_opts)
-git_commit('db:sqlite: configured SQLite DB setup')
+git_commit('configured SQLite DB setup')
 logger.info "committed db:sqlite setup"
 
 
