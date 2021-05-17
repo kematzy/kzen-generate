@@ -45,28 +45,6 @@ module Kzen
       end
 
 
-      #### FORMAT HELPERS
-
-      def bold_bright_green(str)
-        format.bold.bright_green("'#{str}'")
-      end
-      alias_method :bbg, :bold_bright_green
-
-      def bold_bright_red(str)
-        format.bold.bright_red("'#{str}'")
-      end
-      alias_method :bbr, :bold_bright_red
-
-      def bold_bright_cyan(str)
-        format.bold.bright_cyan("'#{str}'")
-      end
-      alias_method :bbc, :bold_bright_cyan
-
-      def bold(str)
-        format.bold(str)
-      end
-
-
       #### GIT HELPERS
 
       def git?

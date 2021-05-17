@@ -9,6 +9,7 @@ require 'pastel'
 require 'active_support/all'
 require_relative '../lib/helpers'
 require_relative '../lib/laravel_helpers'
+require_relative '../lib/format_helpers'
 
 
 module Kzen
@@ -17,6 +18,7 @@ module Kzen
     include Thor::Actions
     include Kzen::Helpers
     include Kzen::LaravelHelpers
+    include Kzen::FormatHelpers
 
     # Define the source template root
     def self.source_root
