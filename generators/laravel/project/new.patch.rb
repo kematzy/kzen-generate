@@ -48,6 +48,9 @@ inside @project_name do
   # 8) Features: Add Pretty Routes support (including: none)
   run_patch('dev:pretty-routes') if confs.fetch('features.dev.pretty-routes')
 
+  # 9) Features: Add Mail Mailtrap support (including: none)
+  run_patch('mail:mailtrap') if confs.fetch('features.mail.mailtrap')
+
   # then save the configs
   confs.write
 end
