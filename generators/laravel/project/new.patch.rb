@@ -36,6 +36,9 @@ inside @project_name do
   # 4) Ensure DB Sessions support
   run_patch('db:sessions') if confs.fetch('db')
 
+  # 5) Features: Add Tailwind support (including: Stylelint, BrowserSync)
+  run_patch('css:tailwind') if confs.fetch('features.css.tailwind')
+
   # then save the configs
   confs.write
 end
