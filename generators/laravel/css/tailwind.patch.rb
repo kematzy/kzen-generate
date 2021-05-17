@@ -96,6 +96,9 @@ directory(tmpl_dir('scss'), 'resources/scss', verbose_opts)
 git_commit('tailwind: added core SCSS files')
 logger.success "added core SCSS files"
 
+# setup browserSync support
+patch_run('mix:browser-sync') if confs.fetch('features.mix.browsersync')
+
 # setup StyleLint support
 patch_run('css:stylelint') if confs.fetch('features.css.stylelint')
 
