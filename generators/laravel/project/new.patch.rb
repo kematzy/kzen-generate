@@ -45,6 +45,9 @@ inside @project_name do
   # 7) Features: Add Ray Debug support (including: none)
   run_patch('dev:ray') if confs.fetch('features.dev.ray')
 
+  # 8) Features: Add Pretty Routes support (including: none)
+  run_patch('dev:pretty-routes') if confs.fetch('features.dev.pretty-routes')
+
   # then save the configs
   confs.write
 end
