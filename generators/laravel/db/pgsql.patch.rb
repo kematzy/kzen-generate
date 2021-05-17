@@ -22,21 +22,57 @@
 set_current_patch 'db:pgsql' # current patch
 
 puts
-replace_in_file('.env', [
-    { find: 'DB_CONNECTION=mysql',  replace: "DB_CONNECTION=#{confs.fetch('db.type')}" },
-    { find: 'DB_HOST=127.0.0.1',    replace: "DB_HOST=#{confs.fetch('db.host')}" },
-    { find: 'DB_PORT=3306',         replace: "DB_PORT=#{confs.fetch('db.port')}" },
-    { find: 'DB_DATABASE=laravel',  replace: "DB_DATABASE=#{confs.fetch('db.database')}" },
-    { find: 'DB_USERNAME=root',     replace: "DB_USERNAME=#{confs.fetch('db.username')}" },
-    { find: 'DB_PASSWORD=',         replace: "DB_PASSWORD=#{confs.fetch('db.password')}", },
-  ],
-  'added PostgreSQL DB configs'
 patch_start
 
 
 logger.debug("db => [#{confs.fetch('db').inspect}]")
 
+gsub_file('.env',
+  'DB_CONNECTION=mysql',
+  "DB_CONNECTION=#{confs.fetch('db.type')}",
+  verbose_opts
 )
+gsub_file('.env',
+  'DB_PORT=3306',
+  "DB_PORT=#{confs.fetch('db.port')}",
+  verbose_opts
+)
+gsub_file('.env',
+  'DB_DATABASE=laravel',
+  "DB_DATABASE=#{confs.fetch('db.database')}",
+  verbose_opts
+)
+gsub_file('.env',
+  'DB_USERNAME=root',
+  "DB_USERNAME=#{confs.fetch('db.username')}",
+  verbose_opts
+)
+gsub_file('.env',
+  'DB_PASSWORD=',
+  "DB_PASSWORD=#{confs.fetch('db.password')}",
+  verbose_opts
+)
+logger.success("added PostgreSQL DB configs")
+
+
+# replace_in_file('.env', [
+#     { find: 'DB_CONNECTION=mysql',  replace: "DB_CONNECTION=#{confs.fetch('db.type')}" },
+#     { find: 'DB_HOST=127.0.0.1',    replace: "DB_HOST=#{confs.fetch('db.host')}" },
+#     { find: 'DB_PORT=3306',         replace: "DB_PORT=#{confs.fetch('db.port')}" },
+#     { find: 'DB_DATABASE=laravel',  replace: "DB_DATABASE=#{confs.fetch('db.database')}" },
+#     { find: 'DB_USERNAME=root',     replace: "DB_USERNAME=#{confs.fetch('db.username')}" },
+#     { find: 'DB_PASSWORD=',         replace: "DB_PASSWORD=#{confs.fetch('db.password')}", },
+#   ],
+#   'added PostgreSQL DB configs'
+# )
+
+db_pgsql_create(confs.fetch('db.username'), confs.fetch('db.database')) unless db_pgsql_exists?
+
+# run("/usr/bin/createdb #{confs.fetch('db.database')}", debug_opts)
+# logger.success("created #{confs.fetch('db.database')} DB in PostgreSQL")
+
+artisan_migrate 'migrated DB'
+
 
 patch_end
 puts
@@ -71,9 +107,3 @@ puts
 
 
 # sudo -u postgres createdb -O kzen grl_admin_app
-
-run("/usr/bin/createdb #{confs.fetch('db.database')}", debug_opts)
-logger.success, "created #{confs.fetch('db.database')} DB in PostgreSQL"
-
-artisan_migrate 'migrated DB'
-
