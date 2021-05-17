@@ -1,0 +1,41 @@
+/* begin: <%= @project_name %>/resources/scss/kzen/dropdowns.scss */
+
+
+.dropdown {
+  @apply origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg z-20;
+  background-color: var(--kzen-header-bg);
+}
+
+.dropdown-header {
+  @apply block px-4 pt-2 pb-3 text-xs uppercase;
+  color: var(--kzen-header-link);
+}
+
+.dropdown-item-button {
+  @apply w-full focus:outline-none;
+}
+
+.dropdown-item-link,
+.dropdown-item-button {
+  @apply block text-base;
+  padding: 0.5rem 1rem 0.5rem 0;
+  color: var(--kzen-header-link);
+
+  &.nav-icon {
+    @apply text-xl;
+  }
+
+  &:hover {
+    // @apply text-primary-800 bg-primary-hover;
+    color: var(--kzen-link-hover);
+    background-color: var(--kzen-dropdown-hover);
+  }
+}
+
+.dropdown-item-divider {
+  // border-t border-gray-100
+  // @apply border-t border-gray-100;
+  border-top: var(--kzen-dropdown-divider);
+}
+
+/* /end: <%= @project_name %>/resources/scss/kzen/dropdowns.scss */

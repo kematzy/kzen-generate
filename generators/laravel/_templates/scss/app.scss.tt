@@ -49,6 +49,12 @@
   @import "kzen/scrollbars.scss";
   @import "kzen/animations.scss";
   @import "kzen/globals.scss";
+  @import "kzen/overlays.scss";
+  @import "kzen/forms.scss";
+  @import "kzen/buttons.scss";
+  @import "kzen/tables.scss";
+  @import "kzen/paginations.scss";
+  @import "kzen/alerts.scss";
 
   // insert additional imports here
 }

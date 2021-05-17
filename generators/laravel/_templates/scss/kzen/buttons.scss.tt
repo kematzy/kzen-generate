@@ -1,0 +1,92 @@
+/* begin: <%= @project_name %>/resources/scss/kzen/buttons.scss */
+
+.btn {
+  @apply w-full rounded-md p-1 flex items-center justify-center focus:outline-none md:text-xl md:px-2;
+}
+
+.btn-primary {
+  @apply rounded bg-purple-500 text-white text-right;
+  border: 1px solid theme('colors.purple.600');
+  padding: .25rem 1.5rem;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    @apply text-purple-800 bg-transparent border-purple-700;
+  }
+}
+
+
+.btn-primary-outline {
+  // @apply rounded bg-purple-500 text-white text-right;
+  @apply rounded text-purple-800 bg-transparent border-purple-700 text-right;
+  border: 1px solid theme('colors.purple.600');
+  padding: .25rem 1.5rem;
+  text-transform: uppercase;
+
+  &:hover,
+  &:focus {
+    // @apply text-purple-800 bg-transparent border-purple-700;
+    @apply bg-purple-500 text-white;
+  }
+}
+
+.btn-save {
+  @apply rounded bg-purple-500 text-white text-right border border-purple-600 uppercase;
+  padding: 0.2rem 1rem;
+  margin: 0 0 0 0.5rem;
+
+  &:hover,
+  &:focus {
+    @apply text-purple-800 bg-transparent border-purple-700;
+  }
+}
+
+.btn-cancel {
+  @apply rounded text-yellow-500 border border-gray-300 bg-transparent uppercase;
+  padding: 0.25rem 1rem;
+  margin: 0 0.5rem;
+
+  &:focus,
+  &:hover {
+    @apply text-white bg-yellow-500;
+  }
+}
+
+.btn-delete {
+  @apply rounded text-red-400 border border-gray-300 bg-transparent uppercase flex items-center;
+  padding: 0rem 1rem 0rem 0;
+  margin: 0 1rem 0 0;
+
+  &:focus,
+  &:hover {
+    @apply text-white bg-red-500;
+  }
+}
+
+.btn-spinner,
+.btn-spinner:after {
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.btn-spinner {
+  animation: spinning 1s infinite linear;
+  border-bottom: 0.2em solid white;
+  border-left: 0.2em solid transparent;
+  border-right: 0.2em solid white;
+  border-top: 0.2em solid white;
+  font-size: 0.75rem;
+  position: relative;
+  text-indent: -9999em;
+  transform: translateZ(0);
+}
+
+@keyframes spinning {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+
+
+/* /end: <%= @project_name %>/resources/scss/kzen/buttons.scss */
