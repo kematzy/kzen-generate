@@ -48,7 +48,8 @@ module Kzen
       #### GIT HELPERS
 
       def git?
-        options[:git]
+        # options[:git]
+        confs.fetch('features.git')
       end
       alias_method :using_git?, :git?
 
@@ -64,14 +65,16 @@ module Kzen
       end
 
       def git_commit(message, silent = nil)
-        if git_dirty?
-          # we are using git and it's dirty
-          run("git add . ", debug_opts)
-          run("git commit -m '#{@patch}: #{message}'", debug_opts)
-          logger.git("#{@patch}: #{message}")
-        elsif git?
-          # using git, but not dirty, so log info
-          logger.git('no changes to commit', @patch) unless silent
+        if git?
+          if git_dirty?
+            # we are using git and it's dirty
+            run("git add . ", debug_opts)
+            run("git commit -m '#{@current_patch}: #{message}'", debug_opts)
+            logger.git("#{@current_patch}: #{message}")
+          else
+            # using git, but not dirty, so log infom
+            logger.git('no changes to commit', @patch) unless silent
+          end
         else
           # do nothing, not using git
         end
