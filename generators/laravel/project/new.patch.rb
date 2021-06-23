@@ -50,6 +50,7 @@ inside @project_name do
 
   # 9) Features: Add Mail Mailtrap support (including: none)
   run_patch('mail:mailtrap') if confs.fetch('features.mail.mailtrap')
+  patch_run('dev:mail:mailtrap') if confs.fetch('dev.mail.mailtrap')
 
   # then save the configs
   confs.write
