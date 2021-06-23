@@ -39,7 +39,7 @@ unless confs.fetch('db.port') == 3306
   )
 end
 gsub_file('.env',
-  'DB_DATABASE=laravel',
+  "DB_DATABASE=#{@project_name.gsub('-', '_')}",
   "DB_DATABASE=#{confs.fetch('db.database')}",
   verbose_opts
 )
@@ -55,22 +55,13 @@ gsub_file('.env',
 )
 logger.success('added MySQL DB configs')
 
-# say_status :info, "commented out default DB configs"
 
-db_mysql_create(confs.fetch('db.username'), confs.fetch('db.database')) unless db_mysql_exists?
+db_mysql_create(confs.fetch('db.database'), confs.fetch('db.username')) unless db_mysql_exists?
 
-# logger.info('creating db starting')
-# # begin
-#   run("/usr/bin/mysql -u #{confs.fetch('db.username')} -e \"CREATE DATABASE IF NOT EXISTS #{confs.fetch('db.database')}\";", debug_opts)
-#   logger.success('created mysql DB file')
-# # rescue => SystemExit
-# #   logger.fatal("creating database '#{bbr(confs.fetch('db.database'))}' failed")
-# # end
-# logger.info('creating db finished')
+# /usr/bin/mysql -u kzen -e "CREATE DATABASE IF NOT EXISTS <database_name>";
 
 artisan_migrate('migrated DB')
 
 
-# patch_end
 patch_end
 puts
