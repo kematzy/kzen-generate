@@ -1,0 +1,46 @@
+/* begin: /resources/css/app/components/debug-bar.css */
+
+@layer components {
+
+  .debug-bar {
+    @apply fixed shadow-md bottom-0 left-0;
+    background-color: var(--kzen-debug-bar-bg);
+    border-top-right-radius: 0.25rem;
+    bottom: 0;
+    left: 0;
+    min-height: 2rem;
+    padding: 0.25rem 0.5rem;
+    z-index: 9998;
+
+    & h4 {
+      @apply text-xs leading-4 px-2 my-1 mx-0;
+      color: var(--kzen-debug-bar-foreground);
+    }
+
+    & button {
+      @apply pt-0 pr-2 pb-0 pl-4 text-xs leading-4 ;
+      color: var(--kzen-debug-bar-foreground);
+    }
+
+    &:hover {
+      /* color:rgba(50, 63, 75, 0.85); */
+      color: var(--kzen-debug-bar-hover);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+  }
+
+  .debug-contents {
+    @apply leading-5 text-sm font-mono h-96 mt-1 p-4 w-full rounded overflow-scroll;
+    background-color: rgba(243, 244, 246, 1);
+    background-color: var(--kzen-debug-bar-contents-bg);
+    color: var(--kzen-debug-bar-contents-foreground);
+    border: var(--kzen-debug-bar-contents-border);
+  }
+
+}
+
+/* /end: /resources/css/app/components/debug-bar.css */

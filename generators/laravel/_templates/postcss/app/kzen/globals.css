@@ -1,0 +1,33 @@
+/* begin: /resources/css/app/kzen/globals.css */
+
+@layer components {
+
+  /* begin: links formatting */
+
+  .nav-link {
+    color: var(--kzen-link);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 3rem;
+
+    &.active,
+    &:hover {
+      color: var(--kzen-link-hover);
+    }
+
+    &.active {
+      border-left: 3px solid var(--kzen-link);
+      padding-left: .5rem;
+    }
+  }
+
+  .nav-action {
+    @apply px-2 text-2xl text-gray-300;
+  }
+
+  /* /end: links formatting */
+
+} /* /@layer components */
+
+
+/* /end: /resources/css/app/kzen/globals.css */

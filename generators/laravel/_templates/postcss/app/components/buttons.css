@@ -1,0 +1,252 @@
+/* begin: /resources/css/app/components/buttons.css */
+
+.btn {
+  @apply w-full rounded-md p-1 flex items-center justify-center focus:outline-none md:text-xl md:px-2;
+}
+
+/* types:
+  primary / secondary /
+  success / danger / warning / info /
+  save   / delete / cancel  /
+  light / dark /
+*/
+.btn-primary,
+.btn-primary-outline,
+.btn-secondary,
+.btn-secondary-outline,
+.btn-success,
+.btn-success-outline,
+.btn-save,
+.btn-save-outline,
+.btn-danger,
+.btn-danger-outline,
+.btn-warning,
+.btn-warning-outline,
+.btn-cancel,
+.btn-cancel-outline,
+.btn-info,
+.btn-info-outline,
+.btn-light,
+.btn-light-outline,
+.btn-dark,
+.btn-dark-outline {
+  @apply flex items-center justify-center rounded text-right uppercase border font-medium;
+  /* color: var(--kzen-button-foreground); */
+
+  /* button: block => w-full */
+  &.wide {
+    @apply w-full text-center;
+  }
+}
+
+
+/* button sizes: btn-xs / btn-sm / btn-md / btn-lg / btn-xl */
+.btn-xs {
+  @apply text-xs;
+  padding: .125rem 1rem;
+}
+
+.btn-sm {
+  @apply text-sm;
+  padding: .25rem 1.25rem;
+  /* font-size: 0.875rem; */
+}
+
+.btn-md {
+  @apply text-base;
+  padding: .375rem 1.5rem;
+}
+
+.btn-lg {
+  @apply text-lg;
+  padding: .5rem 1.5rem;
+}
+
+.btn-xl {
+  @apply text-xl;
+  padding: .5rem 1.5rem;
+}
+
+
+
+.btn-primary {
+  color: var(--kzen-button-primary-foreground);
+  background-color: var(--kzen-button-primary-bg);
+  border: var(--kzen-button-primary-border);
+
+  &:hover,
+  &:focus {
+    color: var(--kzen-button-primary-hover-foreground);
+    background-color: var(--kzen-button-primary-hover-bg);
+    border: var(--kzen-button-primary-hover-border);
+  }
+}
+
+.btn-primary-outline {
+  /* @apply text-purple-800 bg-transparent border-purple-700; */
+    color: var(--kzen-button-primary-outline-foreground);
+    background-color: var(--kzen-button-primary-outline-bg);
+    border: var(--kzen-button-primary-outline-border);
+
+  &:hover,
+  &:focus {
+    /* @apply bg-purple-500 text-white; */
+    color: var(--kzen-button-primary-outline-hover-foreground);
+    background-color: var(--kzen-button-primary-outline-hover-bg);
+    border: var(--kzen-button-primary-outline-hover-border);
+  }
+}
+
+.btn-secondary {
+  @apply bg-indigo-500 border-indigo-600 text-white;
+
+  &:hover,
+  &:focus {
+    @apply text-indigo-800 bg-transparent border-indigo-700;
+  }
+}
+
+.btn-secondary-outline {
+  @apply text-indigo-800 bg-transparent border-indigo-700;
+
+  &:hover,
+  &:focus {
+    @apply bg-indigo-500 text-white;
+  }
+}
+
+.btn-save {
+  @apply bg-green-500 border-green-600 text-white;
+  /* padding: 0.2rem 1rem;
+  margin: 0 0 0 0.5rem; */
+
+  &:hover,
+  &:focus {
+    @apply text-green-800 bg-transparent border-green-700;
+  }
+}
+
+.btn-delete {
+  @apply text-red-400 border-gray-300 bg-transparent;
+  /* padding: 0rem 1rem 0rem 0;
+  margin: 0 1rem 0 0; */
+
+  &:focus,
+  &:hover {
+    @apply bg-red-500 text-white;
+  }
+}
+
+.btn-cancel {
+  @apply text-yellow-500 border-gray-300 bg-transparent;
+  padding: 0.25rem 1rem;
+  margin: 0 0.5rem;
+
+  &:focus,
+  &:hover {
+    @apply bg-yellow-500 text-white;
+  }
+}
+
+
+.btn-success {
+  @apply bg-green-500 border-green-600 text-white;
+
+  &:hover,
+  &:focus {
+    @apply text-green-800 bg-transparent border-green-700;
+  }
+}
+
+.btn-success-outline {
+  @apply text-green-800 bg-transparent border-green-700;
+
+  &:hover,
+  &:focus {
+    @apply bg-green-500 text-white;
+  }
+}
+
+
+.btn-warning {
+  @apply bg-yellow-500 border-yellow-600 text-white;
+
+  &:focus,
+  &:hover {
+    @apply text-yellow-500 bg-transparent border-yellow-700;
+  }
+}
+
+.btn-warning-outline {
+  @apply text-yellow-500 border-yellow-600 bg-transparent;
+
+  &:focus,
+  &:hover {
+    @apply bg-yellow-500 text-white;
+  }
+}
+
+
+.btn-danger {
+  @apply bg-red-500 text-white;
+
+  &:focus,
+  &:hover {
+    @apply text-red-400 border-red-500 bg-transparent;
+  }
+}
+
+.btn-danger-outline {
+  @apply text-red-400 border-red-500 bg-transparent;
+
+  &:focus,
+  &:hover {
+    @apply bg-red-500 text-white;
+  }
+}
+
+.btn-info {
+  @apply bg-blue-500 text-white;
+
+  &:focus,
+  &:hover {
+    @apply text-blue-400 border-blue-500 bg-transparent;
+  }
+}
+
+.btn-info-outline {
+  @apply text-blue-400 border-blue-500 bg-transparent;
+
+  &:focus,
+  &:hover {
+    @apply bg-blue-500 text-white;
+  }
+}
+
+
+.btn-spinner,
+.btn-spinner:after {
+  border-radius: 50%;
+  width: 1.5em;
+  height: 1.5em;
+}
+
+.btn-spinner {
+  animation: spinning 1s infinite linear;
+  border-bottom: 0.2em solid white;
+  border-left: 0.2em solid transparent;
+  border-right: 0.2em solid white;
+  border-top: 0.2em solid white;
+  font-size: 0.75rem;
+  position: relative;
+  text-indent: -9999em;
+  transform: translateZ(0);
+}
+
+@keyframes spinning {
+  0% { transform: rotate(0deg) }
+  100% { transform: rotate(360deg) }
+}
+
+
+/* /end: /resources/css/app/components/buttons.css */

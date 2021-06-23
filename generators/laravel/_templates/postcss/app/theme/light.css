@@ -1,0 +1,135 @@
+/* begin: /resources/css/app/theme/light.css */
+
+
+:root {
+
+  /* theme: light - backgrounds */
+  /* --kzen-bg: #f3f4f5; */
+  --kzen-bg: var(--kzen-color-light);
+  --kzen-bg-secondary: #fff;
+  --kzen-bg-hover: rgba(226, 218, 218, 0.22);
+
+  /* theme: light - borders */
+  --kzen-border-color: #ddd;
+  --kzen-border-light: 1px solid rgba(150, 150, 150, 0.125);
+
+
+  /* theme: light - button */
+  --kzen-button-primary-bg: var(--kzen-color-primary-b3);
+  --kzen-button-primary-foreground: #fff;
+  --kzen-button-primary-border: 2px solid var(--kzen-color-primary-b1);
+  --kzen-button-primary-hover-bg: transparent;
+  --kzen-button-primary-hover-foreground: var(--kzen-color-primary-d3);
+  --kzen-button-primary-hover-border: 2px solid var(--kzen-color-primary-d1);
+
+  --kzen-button-primary-outline-bg: transparent;
+  --kzen-button-primary-outline-foreground: var(--kzen-color-primary);
+  --kzen-button-primary-outline-border: 2px solid var(--kzen-color-primary-b3);
+  --kzen-button-primary-outline-hover-bg: var(--kzen-color-primary-b5);
+  --kzen-button-primary-outline-hover-foreground: #fff;
+  --kzen-button-primary-outline-hover-border: 2px solid var(--kzen-color-primary-d1);
+
+
+  /* theme: light - cards */
+  --kzen-card-bg: #ffffff;
+  --kzen-card-border: 1px solid rgba(230, 230, 230, 0.9);
+
+  --kzen-card-header-bg: #f5fafa;
+  --kzen-card-header-color: #5863fa;
+
+  --kzen-card-footer-bg: rgba(250, 252, 250, 0.5);
+  --kzen-card-footer-color: #5863fa;
+
+  /* theme: light - errors */
+  --kzen-error-text: #dc2626;
+  --kzen-error-border: 1px solid rgba(220, 38, 38, 0.4);
+
+  /* theme: light - links */
+  --kzen-link: #666;
+  /* --kzen-link-hover: #132a6b; */
+  --kzen-link-hover: var(--kzen-color-primary-d3);
+
+  /* theme: light - headers */
+  /* --kzen-header-bg: #fff; */
+  /* --kzen-header-bg: #f0ebeaff; */
+  --kzen-header-bg: var(--kzen-color-light-d1);
+  /* --kzen-header-color: #8c96aa; */
+  --kzen-header-color: #8c96aa;
+  --kzen-header-link: #828ea0;
+  --kzen-header-border-bottom: 1px solid var(--kzen-header-bg);
+
+  /* theme: light - dropdowns */
+  --kzen-dropdown-bg: rgba(255, 255, 255, 0.95);
+  --kzen-dropdown-header: rgba(96, 45, 135, 0.4);
+  --kzen-dropdown-overlay: rgba(255, 255, 255, 0.1);
+  --kzen-dropdown-hover: rgba(96, 45, 135, 0.05);
+  --kzen-dropdown-divider: 1px solid rgba(150, 150, 150, 0.25);
+
+  /* theme: light - overlays */
+  --kzen-overlay-bg: var(--kzen-header-bg);
+  --kzen-overlay-border: 1px solid rgba(150, 150, 150, 0.1);
+
+  /* theme: light - auth-boxes */
+
+
+  /* theme: light - form */
+  --kzen-form-label: var(--kzen-color-dark-d4);
+  --kzen-form-label-required: rgba(10, 10, 10, 0.95);
+  --kzen-form-input-bg: var(--kzen-color-light-b1);
+  --kzen-form-input-border: 1px solid rgba(55, 55, 55, 0.25);
+  --kzen-form-input-border-hover: 1px solid rgba(120, 38, 38, 0.4);
+  --kzen-form-input-focus-shadow: 0 0 0 1px rgb(196 181 253 / 80%);
+  --kzen-form-input-outline: var(--kzen-color-light-d3);
+  --kzen-form-input-foreground: var(--kzen-color-dark-d3);
+
+
+  /* theme: light - sidebars */
+  --kzen-sidebar-bg: #fff;
+  --kzen-sidebar-border-right: 1px solid var(--kzen-sidebar-bg);
+  --kzen-sidebar-logo-border-bottom: 1px solid var(--kzen-sidebar-bg);
+  --kzen-sidebar-link-active-bg: var(--kzen-admin-main-bg);
+  --kzen-sidebar-link-active: var(--kzen-color-primary);
+  --kzen-sidebar-icon: var(--kzen-color-secondary);
+  --kzen-sidebar-icon-active: var(--kzen-color-primary);
+
+  /* theme: light - table */
+  --kzen-table-bg: #fff;
+  --kzen-table-header-foreground: rgba(96, 45, 135, 0.75);
+  --kzen-table-tr-hover: #f9fafb;
+  --kzen-table-tr-odd: rgba(249, 250, 251, 0.4);
+
+  /* theme: light - pagination */
+  --kzen-pagination-bg: rgba(249, 250, 251, 0.5);
+  --kzen-pagination-foreground: #666;
+  --kzen-pagination-foreground-disabled: #888;
+  --kzen-pagination-foreground-hover: #efefef;
+  --kzen-pagination-border: 1px solid rgba(150, 150, 150, 0.1);
+  --kzen-pagination-active-border: 1px solid rgba(159, 22, 184, 0.2);
+  --kzen-pagination-active-foreground: #901fdb;
+
+  /* theme: light - footer */
+  --kzen-footer-bg: #fff;
+  --kzen-footer-foreground: #c7c9ca;
+  --kzen-footer-border-top: var(--kzen-border-light);
+  --kzen-footer-link: #989fb1;
+
+  /* theme: light - admin */
+  /* --kzen-admin-main-bg: #f7fafc; */
+
+
+  /* theme: light - scrollbar */
+  --kzen-scrollbar-track: var(--kzen-bg);
+  --kzen-scrollbar-thumb: var(--kzen-color-light-d1);
+  --kzen-scrollbar-thumb-hover: var(--kzen-color-light-d5);
+
+  /* theme: light - debug-bar */
+  --kzen-debug-bar-bg: var(--kzen-color-light-d1);
+  --kzen-debug-bar-foreground: rgba(103, 113, 125, 0.75);
+  --kzen-debug-bar-contents-bg: var(--kzen-color-light-b1);
+  --kzen-debug-bar-contents-foreground: var(--kzen-color-dark-d5);
+  --kzen-debug-bar-contents-border: 1px solid var(--kzen-color-light-d2);
+
+} /* /:root */
+
+
+/* /end: /resources/css/app/theme/light.css */

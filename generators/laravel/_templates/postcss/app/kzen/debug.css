@@ -1,0 +1,98 @@
+/* begin: /resources/css/app/kzen/debug.css */
+
+/* begin: debug-css */
+
+:root {
+
+}
+
+/* shows the current window size (static) in the middle top bar */
+body::before {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  font-size: 0.75rem;
+  margin: 0;
+  padding: 0.125rem 0.75rem;
+  position: fixed;
+  top: 0px;
+  z-index: 10000;
+}
+
+/* xs: < '639px' */
+@media screen and (max-width: 639px) {
+  body::before {
+    /* content: "xs: < 639px"; */
+    content: " ";
+    background-color: rgba(255, 255, 0, 1);
+    /* color: black; */
+    /* left: 25%; */
+    height: 4px;
+    width: 100%;
+    transition: left ease-in-out 100ms;
+  }
+}
+
+/* sm: '640px' */
+@media screen and (min-width: 640px) {
+  body::before {
+    content: "sm: 640px";
+    background-color: rgba(255, 0, 0, 0.35);
+    color: white;
+    left: 50%;
+    transition: left ease-in-out 100ms;
+  }
+}
+
+/* md: '768px' */
+@media screen and (min-width: 768px) {
+  body::before {
+    content: "md: 768px";
+    background-color: rgba(0, 0, 255, 0.4);
+    color: white;
+  }
+}
+
+/* lg: '1024px' */
+@media screen and (min-width: 1024px) {
+  body::before {
+    content: "lg: 1024px";
+    background-color: rgba(128, 0, 128, 0.45);
+    color: white;
+  }
+}
+
+/* xl: '1280px */
+@media screen and (min-width: 1280px) {
+  body::before {
+    content: "xl: 1280px";
+    background-color: rgba(0, 128, 0, 0.5);
+    color: white;
+  }
+}
+
+/* 2xl: '1536px */
+@media screen and (min-width: 1536px) {
+  body::before {
+    content: "2xl: 1536px";
+    background-color: rgba(255, 165, 0, 0.5);
+    color: black;
+  }
+}
+
+/* 3xl: '1920px */
+@media screen and (min-width: 1920px) {
+  body::before {
+    content: "3xl: 1920px";
+    background-color: rgba(128, 128, 0, 0.5);
+    color: white;
+  }
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+/* /end: debug */
+
+/* /end: /resources/css/app/kzen/debug.css */

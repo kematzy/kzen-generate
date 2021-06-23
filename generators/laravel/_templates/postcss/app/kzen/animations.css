@@ -1,0 +1,84 @@
+/* begin: /resources/css/app/kzen/animations.css */
+
+@layer components {
+
+  /* ### USAGE:
+    .main-contents {
+      <snip...>
+      animation: transitionIn 1s;
+    }
+  */
+
+  /* begin: page animations */
+  @keyframes transitionIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes transitionOut {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+  /* /end: page animations */
+
+  /* Fading animation */
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+
+  .fade {
+    animation-duration: 1s;
+    animation-name: fade;
+  }
+
+
+  /* SlideUp animation */
+  @keyframes slideUp {
+    from {
+      height: 50%;
+    }
+
+    to {
+      height: 100%;
+    }
+    /* 50% { height: 100%; } */
+  }
+
+  .slide-up {
+    animation-duration: 1s;
+    animation-name: slideUp;
+  }
+
+
+  /* fadeInDownBig animation */
+  @keyframes fadeInDownBig {
+    from {
+      opacity: 0;
+      transform: translate3d(0, 40rem, 0);
+    }
+
+    to {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  .fade-in-down-big {
+    animation-name: fadeInDownBig;
+  }
+
+} /* /@layer components */
+
+
+/* /end: /resources/css/app/kzen/animations.css */

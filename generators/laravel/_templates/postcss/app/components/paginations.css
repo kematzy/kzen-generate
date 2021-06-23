@@ -1,0 +1,95 @@
+/* begin: /resources/css/app/components/paginations.css */
+
+@layer components {
+
+  .paginations {
+    @apply mt-6 -mb-1 mx-0 px-4 flex flex-wrap;
+
+    .pagination-disabled,
+    .pagination-link {
+      @apply mr-1 mb-1 px-4 py-2 text-xs rounded uppercase;
+      border: var(--kzen-pagination-border);
+    }
+
+    /* disabled non-links */
+    .pagination-disabled {
+      /* mr-1 mb-1 px-4 py-2 text-sm border border-gray-300 rounded text-gray-400 uppercase; */
+      color: var(--kzen-pagination-foreground-disabled);
+    }
+
+    /* normal links */
+    .pagination-link {
+      /* mr-1 mb-1 px-4 py-2 text-sm border border-gray-300 rounded hover:bg-purple-400 hover:text-white focus:outline-none uppercase */
+      /* mr-1 mb-1 px-4 py-2 text-sm rounded uppercase; */
+      color: var(--kzen-pagination-foreground);
+
+      &:hover {
+        background-color: var(--kzen-color-primary);
+        color: var(--kzen-pagination-foreground-hover);
+      }
+
+      &.active {
+        border: var(--kzen-pagination-active-border);
+        color: var(--kzen-pagination-active-foreground);
+        /* color: var(--kzen-color-primary); */
+
+        &:hover {
+          background-color: var(--kzen-color-primary);
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .zen-table-wrapper {
+
+    .paginations {
+      @apply py-4 px-4 mt-0;
+    }
+
+    .paginations-showing {
+      @apply w-full py-4 px-6;
+
+      p {
+        @apply text-xs m-0 p-0 leading-none;
+        color: var(--kzen-pagination-foreground-disabled);
+      }
+    }
+  }
+
+
+  /* begin: RESPONSIVE STYLES */
+
+  /* sm: */
+  @media (min-width: 640px) {}
+
+  /* md: */
+  @media (min-width: 768px) {
+    .zen-table-wrapper {
+      .paginations-showing {
+        @apply border-t;
+        background-color: var(--kzen-pagination-bg);
+      }
+
+      .paginations {
+        @apply py-4 px-4 mt-0 border-t;
+        background-color: var(--kzen-pagination-bg);
+      }
+    }
+  }
+
+  /* lg: */
+  @media (min-width: 1024px) {}
+
+  /* xl: */
+  @media (min-width: 1280px) {}
+
+  /* xxl: */
+  @media (min-width: 1536px) {}
+
+  /* /end: RESPONSIVE STYLES */
+
+} /* /@layer components */
+
+
+/* /end: /resources/css/app/components/paginations.css */

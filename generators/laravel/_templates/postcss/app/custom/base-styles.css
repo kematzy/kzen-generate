@@ -1,0 +1,95 @@
+/* begin: /resources/css/app/custom/base-styles.css */
+
+@layer base {
+
+  /* begin: selection */
+
+  ::selection {
+    background-color: var(--kzen-color-selection);
+  }
+
+  /* /end: selection */
+
+  body {
+    @apply antialiased;
+    background-color: var(--kzen-bg);
+    color: var(--kzen-foreground);
+    overflow-x: hidden;
+  }
+
+  /* begin: headers */
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply mt-4 font-normal;
+  }
+
+  h1,
+  .h1 {
+    @apply text-4xl mb-2;
+  }
+
+  h2,
+  .h2 {
+    @apply text-3xl mb-2;
+  }
+
+  h3,
+  .h3 {
+    @apply text-2xl mb-2;
+  }
+
+  h4,
+  .h4 {
+    @apply text-lg mb-2;
+  }
+
+  /* /end: headers */
+
+
+  /* begin: typography */
+
+  strong,
+  b {
+    font-weight: 500;
+  }
+
+  /* Standardise formatting of paragraphs */
+  p {
+    margin-bottom: 1rem;
+  }
+
+  /* remove formatting on abbreviations */
+  abbr[title] {
+    cursor: help;
+    text-decoration: none;
+  }
+
+  /* /end: typography */
+
+
+  /* begin: links formatting */
+
+  a {
+    color: var(--kzen-link);
+
+    &:hover {
+      color: var(--kzen-link-hover);
+    }
+  }
+
+  /* /end: links formatting */
+
+
+  /* begin: buttons */
+  button:focus {
+    @apply outline-none;
+  }
+  /* /end: buttons */
+
+} /* /@layer base */
+
+
+/* /end: /resources/css/app/custom/base-styles.css */

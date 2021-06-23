@@ -1,0 +1,17 @@
+/* begin: <%= @project_name %>/resources/css/app.css */
+
+@import "./app/theme.css";
+
+@import "tailwindcss/base";
+@import "./app/custom/base-styles.css";
+
+@import "tailwindcss/components";
+@import "./app/components.css";
+
+@import "tailwindcss/utilities";
+@import "./app/custom/utilities.css";
+
+/* add debug during development only */
+@import "./app/kzen/debug.css";
+
+/* /end: <%= @project_name %>/resources/css/app.css */

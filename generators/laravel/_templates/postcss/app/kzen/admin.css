@@ -1,0 +1,21 @@
+/* begin: /resources/css/app/kzen/admin.css */
+
+@layer components {
+
+  .page-container {
+    /* relative flex flex-col justify-center min-h-screen items-top sm:items-center sm:pt-0 */
+    @apply relative flex flex-wrap min-h-screen p-4 mt-12 flex-col;
+  }
+
+  /* .main-contents {
+    @apply block flex-1 px-4 pb-4;
+    animation: transitionIn 1.5s;
+    background-color: var(--kzen-admin-main-bg);
+    margin-top: calc(var(--kzen-header-height) + 2rem);
+    min-height: calc(100vh - var(--kzen-footer-height) - 2rem);
+  } */
+
+} /* /@layer components */
+
+
+/* /end: /resources/css/app/kzen/admin.css */

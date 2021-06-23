@@ -1,0 +1,207 @@
+/* begin: /resources/css/app/kzen/tables.css */
+
+@layer components {
+
+  /* stylelint-disable no-descending-specificity */
+  .zen-table-wrapper {
+    /* bg-white rounded shadow overflow-x-auto */
+    /* apply rounded shadow overflow-x-auto; */
+    /* @apply rounded-md shadow; */
+    /* background-color: var(--kzen-table-bg); */
+    @apply w-full;
+  }
+
+  .zen-table {
+    /* w-full whitespace-no-wrap */
+    /* @apply w-full whitespace-nowrap table-auto border-collapse; */
+    @apply w-full border-collapse;
+
+    /* table header */
+    & thead,
+    & .zen-table-header {
+      /* text-left font-medium text-purple-300 */
+      /* @apply text-left font-light; */
+      color: var(--kzen-table-header-foreground);
+
+      & th {
+        /* px-6 py-4 border-l */
+        @apply px-6 py-4 border-l text-left font-light;
+
+        &:first-child {
+          border-left: 1px solid transparent;
+        }
+      }
+    }
+
+    & tbody {
+      & tr {
+
+        /* even rows */
+        &:hover {
+          /* apply bg-gray-50; */
+          background-color: var(--kzen-table-tr-hover);
+        }
+
+        /* odd rows */
+        &.odd {
+          /* hover:bg-gray-50 focus-within:bg-gray-100; */
+          background-color: var(--kzen-table-tr-odd);
+
+          &:hover {
+            /* bg-purple-50; */
+            background-color: var(--kzen-table-tr-odd-hover);
+          }
+        }
+      }
+
+      & td {
+        /* border-t flex items-center */
+        @apply border-t items-center px-4 py-3;
+
+
+        &.actions {
+          @apply flex justify-end;
+          /* background-color: var(--kzen-table-tr-hover); */
+          /* border-left: 1px solid #f5e7fb; */
+          border-left: 1px solid #f5f5f4;
+        }
+      }
+    }
+
+    & .tr-no-records {
+      & td {
+        /* border-t px-6 py-8 text-center */
+        @apply border-t px-6 py-8 text-center;
+      }
+    }
+  }
+
+
+  .zen-table-responsive {
+    /* w-full flex flex-row flex-nowrap md:bg-white rounded-lg overflow-hidden md:shadow-lg my-8 */
+    @apply w-full flex flex-row flex-nowrap rounded overflow-hidden border-collapse;
+
+    & thead {
+      /* @apply text-left font-light; */
+      color: var(--kzen-table-header-foreground);
+
+      /* tr */
+      & tr {
+        /* bg-gray-100 flex flex-col flex-nowrap md:table-row rounded-l-lg md:rounded-none mb-4 md:mb-0 */
+        @apply flex flex-col flex-nowrap rounded-l mb-4;
+        background-color: var(--kzen-table-bg);
+      }
+
+      & th {
+        @apply p-3 text-left font-light border-r;
+      }
+    }
+
+    & tbody {
+      /* flex-1 md:flex-none */
+      @apply flex-1;
+
+      & tr {
+        /* flex flex-col flex-nowrap md:table-row mb-4 md:mb-0 rounded-r-lg bg-gray-50 */
+        /* md: table-row mb-0 */
+        @apply flex flex-col flex-nowrap mb-4 rounded-r;
+        background-color: var(--kzen-table-bg);
+      }
+    }
+
+    & th,
+    & td {
+      @apply px-4 py-3;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    /* th:first-child, */
+    /* td:first-child {
+      border-top: 1px solid transparent;
+    } */
+
+    & td.actions {
+      @apply py-2;
+      text-align: right;
+      padding-right: 1rem;
+    }
+  }
+
+
+  /* begin: RESPONSIVE STYLES */
+
+  /* sm: */
+  @media (min-width: 640px) {}
+
+  /* md: */
+  @media (min-width: 768px) {
+    .zen-table-wrapper {
+      /* bg-white rounded shadow overflow-x-auto */
+      /* apply rounded shadow overflow-x-auto; */
+      @apply rounded-md shadow;
+      background-color: var(--kzen-table-bg);
+    }
+
+    .zen-table-responsive {
+      background-color: var(--kzen-table-bg);
+      display: inline-table !important;
+
+      & thead {
+        @apply font-medium;
+
+        & tr {
+          @apply table-row rounded-none mb-0;
+
+          &:not(:first-child) {
+            display: none;
+          }
+        }
+
+        & th:last-child {
+          @apply w-24;
+        }
+
+        & th {
+          /* px-6 py-4 border-l */
+          @apply px-6 py-4 border-l;
+
+          &:first-child {
+            border-left: 1px solid transparent;
+          }
+        }
+      }
+
+      & tbody {
+        @apply flex-none;
+
+        & tr {
+          @apply table-row mb-0;
+          /* border-top: 1px solid rgba(0, 0, 0, .1); */
+
+          &.odd {
+            background-color: var(--kzen-table-tr-odd);
+          }
+        }
+      }
+
+      & td.actions {
+        @apply flex justify-end text-center border-l;
+        /* background-color: rgba(200, 200, 200, .1); */
+      }
+    }
+  }
+
+  /* lg: */
+  @media (min-width: 1024px) {}
+
+  /* xl: */
+  @media (min-width: 1280px) {}
+
+  /* xxl: */
+  @media (min-width: 1536px) {}
+
+  /* /end: RESPONSIVE STYLES */
+
+} /* /@layer components */
+
+/* /end: /resources/css/app/kzen/tables.css */

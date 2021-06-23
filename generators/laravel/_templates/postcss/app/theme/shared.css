@@ -1,0 +1,24 @@
+/* begin: /resources/css/app/theme/shared.css */
+
+:root {
+
+  /* begin: global shared variables */
+  --kzen-card-padding: 1rem;
+
+  --kzen-header-height: 3rem;
+  --kzen-footer-height: 2rem;
+
+  --kzen-sidebar-width: 15rem;
+  --kzen-sidebar-width-thin: 4rem;
+
+  --kzen-scrollbar-width: 10px;
+  --kzen-scrollbar-height: 6px;
+  --kzen-scrollbar-border-radius: 3px;
+
+  --kzen-z-admin-header: 100;
+
+  /* /end: global shared variables */
+
+}
+
+/* /end: /resources/css/app/theme/shared.css */

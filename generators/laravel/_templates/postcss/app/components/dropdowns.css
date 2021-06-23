@@ -1,0 +1,60 @@
+/* begin: /resources/css/app/components/dropdowns.css */
+
+@layer components {
+
+  .dropdown {
+    @apply origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg z-20;
+    background-color: var(--kzen-header-bg);
+  }
+
+  .dropdown-overlay {
+    @apply fixed inset-0 z-40;
+    background-color: var(--kzen-dropdown-overlay);
+  }
+
+  .dropdown-menu {
+    @apply origin-top-right absolute z-50 mt-2 rounded shadow-md;
+    background-color: var(--kzen-dropdown-bg);
+  }
+
+  .dropdown-header {
+    @apply block px-4 pt-2 pb-3 text-xs;
+    color: var(--kzen-header-link);
+
+    & small {
+      @apply block text-xs text-gray-400 dark:text-gray-500;
+    }
+
+    & span {
+      @apply block text-base;
+    }
+  }
+
+  .dropdown-item-button {
+    @apply w-full focus:outline-none;
+  }
+
+  .dropdown-item-link,
+  .dropdown-item-button {
+    @apply block text-base;
+    padding: 0.5rem 1rem 0.5rem 0;
+    color: var(--kzen-header-link);
+
+    &.nav-icon {
+      @apply text-xl;
+    }
+
+    &:hover {
+      color: var(--kzen-link-hover);
+      background-color: var(--kzen-dropdown-hover);
+    }
+  }
+
+  .dropdown-item-divider {
+    border-top: var(--kzen-dropdown-divider);
+  }
+
+} /* /@layer components */
+
+
+/* /end: /resources/css/app/components/dropdowns.css */

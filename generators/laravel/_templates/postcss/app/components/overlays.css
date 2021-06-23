@@ -1,0 +1,105 @@
+/* begin: /resources/css/app/components/overlays.css */
+
+@layer components {
+
+  .overlay {
+    background-color: var(--kzen-overlay-bg);
+    height: calc(100% - 52px);
+    position: absolute;
+    top: -100%;
+    transition: 0.35s ease-in-out;
+    width: 100%;
+    z-index: 30;
+
+    &.open {
+      visibility: visible;
+    }
+  }
+
+  .overlay-scale {
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: transform 0.5s, opacity 0.5s, visibility 0s 0.5s;
+
+    &.open {
+      top: 52px;
+      visibility: visible;
+      opacity: 1;
+      transform: scale(1);
+      transition: transform 0.4s, opacity 0.4s;
+    }
+  }
+
+  .overlay-content {
+    margin: 1rem 0.5rem;
+    height: calc(100% - 4rem);
+  }
+
+  .column {
+    height: 30%;
+    padding: 1rem 0.5rem;
+  }
+
+  .column:nth-child(2),
+  .column:nth-child(3) {
+    /* border-top: var(--kzen-overlay-border); */
+    /* border-top: 1px solid rgba(150, 150, 150, 0.3); */
+  }
+
+
+  /* begin: RESPONSIVE STYLES */
+
+  /* sm: */
+  @media (min-width: 640px) {
+    .column:nth-child(1) {
+      border-right: var(--kzen-overlay-border);
+      padding-left: 0.5rem;
+      /* border-top: var(--kzen-overlay-border); */
+      /* border-top: 1px solid var(--kzen-overlay-bg); */
+      /* border-right: 1px solid rgba(150, 150, 150, 0.3); */
+    }
+    .column:nth-child(3) {
+      border-top: var(--kzen-overlay-border);
+    }
+  }
+
+  /* md: */
+  @media (min-width: 768px) {
+    .column {
+      height: calc(50vh - 7rem);
+      padding: 1rem 0.5rem;
+    }
+
+    .column:nth-child(1) {
+      border-top: 1px solid var(--kzen-overlay-bg);
+    }
+  }
+
+  /* lg: */
+  @media (min-width: 1024px) {
+    .column {
+      height: calc(100vh - 7rem);
+      padding: 1rem 0.75rem;
+    }
+
+    .column:nth-child(1),
+    .column:nth-child(2),
+    .column:nth-child(3) {
+      border-top: 1px solid var(--kzen-overlay-bg);
+      /* border-right: var(--kzen-overlay-border); */
+      /* border-right: 1px solid rgba(150, 150, 150, 0.3); */
+    }
+  }
+
+  /* xl: */
+  @media (min-width: 1280px) {}
+
+  /* 2xl: */
+  @media (min-width: 1536px) {}
+
+  /* /end: RESPONSIVE STYLES */
+
+} /* /@layer components */
+
+/* /end: /resources/css/app/components/overlays.css */

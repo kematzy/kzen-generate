@@ -1,0 +1,8 @@
+/* begin: /resources/css/app/theme.css */
+
+@import './theme/shared.css';
+@import './theme/colors.css';
+@import './theme/light.css';
+@import './theme/dark.css';
+
+/* /end: /resources/css/app/theme.css */

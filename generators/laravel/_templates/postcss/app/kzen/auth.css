@@ -1,0 +1,135 @@
+/* begin: /resources/css/app/kzen/auth.css */
+
+@layer components {
+
+  .auth-wrapper {
+    @apply relative flex flex-col items-start justify-center min-h-screen sm:items-center sm:pt-0;
+    background-color: var(--kzen-bg);
+  }
+
+  /* the outer box shape */
+  .auth-bg-outer-box {
+    @apply w-full md:w-4/5 mx-auto sm:px-6 lg:px-8;
+  }
+
+  /* the inner box shape */
+  .auth-bg-inner-box {
+    @apply shadow-md sm:rounded-lg flex lg:flex-row;
+    @apply bg-light-d1 dark:bg-dark-d1 dark:shadow-lg;
+    /* background-color: var(--kzen-auth-bg) */
+  }
+
+  .auth-form-box-right,
+  .auth-form-box-left {
+    @apply w-full py-12 px-2 sm:px-6 border-t md:border-t-0;
+    @apply border-light-b2 dark:border-dark-b3;
+
+    & h3 {
+      @apply pb-2;
+    }
+
+    & .page-links {
+      @apply w-full flex items-center justify-between pb-4 text-sm;
+    }
+  }
+
+  .auth-form-box-right {
+    @apply md:border-l;
+  }
+
+  .auth-form-box-left {
+    @apply md:border-r;
+  }
+
+  .auth-logo-box-right,
+  .auth-logo-box-left {
+    @apply p-6 flex flex-col items-center justify-center w-full;
+    @apply bg-light-d4 dark:bg-dark-d2;
+
+    & h3 {
+      @apply text-gray-400;
+    }
+  }
+
+  .auth-logo-box-left {
+    @apply rounded-l-lg;
+  }
+
+  .auth-logo-box-right {
+    @apply rounded-r-lg;
+  }
+
+  .auth-form {
+    @apply w-full px-4 lg:px-4 xl:px-4 2xl:px-6;
+  }
+
+
+  .auth-alt-page-links {
+    @apply mt-8 w-full flex items-center justify-between pb-4 text-sm;
+  }
+
+  /* Auth: Terms & Policy pages */
+  .auth-terms-wrapper {
+    @apply relative flex flex-col justify-center min-h-screen font-sans antialiased sm:items-center sm:pt-0;
+  }
+
+  .auth-terms-inner {
+    @apply flex flex-col items-center py-6 shadow-lg sm:pt-0 md:rounded-lg;
+    @apply bg-gray-200 dark:bg-dark dark:border-dark-b4 dark:border;
+
+    & #logo {
+      @apply h-8 w-auto my-4 text-primary;
+    }
+  }
+
+  .auth-terms-contents {
+    @apply w-full px-12 py-6 overflow-auto sm:max-w-6xl;
+    @apply bg-gray-100 dark:bg-dark;
+
+    & h2 {
+      @apply pb-4 font-light;
+    }
+
+    & h3 {
+      @apply py-4 font-light;
+    }
+  }
+
+  /* begin: RESPONSIVE STYLES */
+
+  /* sm: */
+  @media (min-width: 640px) {}
+
+  /* md: */
+  @media (min-width: 768px) {}
+
+  /* lg: */
+  @media (min-width: 1024px) {
+    .auth-logo-box-right,
+    .auth-logo-box-left,
+    .auth-form-box-right,
+    .auth-form-box-left {
+      @apply w-1/2;
+    }
+  }
+
+  /* xl: */
+  @media (min-width: 1280px) {
+    .auth-bg-outer-box {
+      max-width: 70%;
+    }
+  }
+
+  /* 2xl: */
+  @media (min-width: 1536px) {
+    .auth-bg-outer-box {
+      max-width: 80rem;
+    }
+  }
+
+  /* /end: RESPONSIVE STYLES */
+
+} /* /@layer components */
+
+
+/* /end: /resources/css/app/kzen/auth.css */

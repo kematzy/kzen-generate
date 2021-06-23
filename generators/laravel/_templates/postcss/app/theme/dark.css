@@ -1,0 +1,146 @@
+/* begin: /resources/css/app/theme/dark.css */
+
+/* ### DARK MODE #### */
+.dark {
+
+  /* begin: global colour variables */
+  --kzen-foreground: #ababab;
+  --kzen-color-primary: #901fdb;
+  --kzen-color-secondary: #b583ca;
+  --kzen-color-success: #2eb85c;
+  --kzen-color-warning: #f9b115;
+  --kzen-color-danger: #e55353;
+  --kzen-color-info: #3399ff;
+  /* --kzen-color-light: #c4c9d0; */
+  /* --kzen-color-dark: #636f83; */
+  --kzen-color-selection: rgba(190, 101, 101, 0.1);
+
+  /* /end: global colour variables */
+
+
+  /* theme: dark - backgrounds */
+  /* --kzen-bg: #091a28; */
+  --kzen-bg: var(--kzen-color-dark);
+  --kzen-bg-secondary: #091c2b;
+  --kzen-bg-hover: rgba(226, 218, 218, 0.22);
+
+  /* theme: dark - borders */
+  --kzen-border-color: #0d2538;
+  /* --kzen-border-light: 1px solid rgba(100, 100, 100, 0.6); */
+  --kzen-border-light: 1px solid rgba(75, 75, 75, 0.6);
+
+  /* theme: dark - button */
+  --kzen-button-primary-bg: var(--kzen-color-primary-d2);
+  --kzen-button-primary-foreground: #fff;
+  --kzen-button-primary-border: 1px solid var(--kzen-color-primary-b1);
+  --kzen-button-primary-hover-foreground: #fff;
+  /* --kzen-button-primary-hover-bg: rgb(136 87 152 / 30%); */
+  --kzen-button-primary-hover-bg: var(--kzen-color-primary-b3);
+  --kzen-button-primary-hover-border: 1px solid #714380;
+
+  --kzen-button-primary-outline-bg: transparent;
+  --kzen-button-primary-outline-foreground: var(--kzen-color-primary-b4);
+  --kzen-button-primary-outline-border: 2px solid var(--kzen-color-primary-b1);
+  --kzen-button-primary-outline-hover-foreground: #fff;
+  /* --kzen-button-primary-outline-hover-bg: rgb(136 87 152 / 30%); */
+  --kzen-button-primary-outline-hover-bg: var(--kzen-color-primary-b3);
+  --kzen-button-primary-outline-hover-border: 2px solid #714380;
+
+
+  /* theme: dark - cards */
+  --kzen-card-bg: var(--kzen-bg-secondary);
+  --kzen-card-border: 1px solid rgba(100, 100, 100, 0.24);
+
+  --kzen-card-header-bg: rgba(18, 33, 51, 0.9);
+  --kzen-card-header-foreground: #969696;
+
+  --kzen-card-footer-bg: rgba(27, 48, 71, 0.5);
+  --kzen-card-footer-foreground: #5863fa;
+
+  /* theme: dark - errors */
+  --kzen-error-text: rgb(216, 44, 44, 0.85);
+  --kzen-error-border: 1px solid rgba(220, 38, 38, 0.4);
+
+  /* theme: dark - links */
+  /* --kzen-link: #597891; */
+  /* --kzen-link: rgba(89,120,145, 1); */
+  --kzen-link: rgba(145 159 214, 0.95);
+  --kzen-link-hover: var(--kzen-color-primary);
+
+  /* theme: dark - headers */
+  --kzen-header-bg: var(--kzen-color-dark-d1);
+  --kzen-header-foreground: var(--kzen-color-primary);
+  --kzen-header-link: var(--kzen-link);
+  --kzen-header-border-bottom: var(--kzen-border-light);
+
+  /* theme: dark - dropdowns */
+  --kzen-dropdown-bg: var(--kzen-color-dark-d2);
+  --kzen-dropdown-header: rgba(89, 120, 145, 0.8);
+  --kzen-dropdown-overlay: rgba(5, 5, 5, 0.1);
+  --kzen-dropdown-hover: rgba(96, 45, 135, 0.15);
+  --kzen-dropdown-divider: 1px solid rgba(200, 200, 200, 0.05);
+
+  /* theme: dark - overlays */
+  --kzen-overlay-bg: var(--kzen-header-bg);
+  --kzen-overlay-border: 1px solid rgba(29, 34, 66, 0.2);
+
+  /* theme: dark - forms */
+  --kzen-form-label: var(--kzen-color-light-d5);
+  --kzen-form-label-required: rgba(200, 200, 200, 0.95);
+  --kzen-form-input-bg: var(--kzen-color-dark-b5);
+  --kzen-form-input-border: 1px solid rgba(255, 255, 255, 0.15);
+  --kzen-form-input-border-hover: 1px solid rgba(255, 255, 255, 0.4);
+  --kzen-form-input-focus-shadow: 0 0 0 1px rgb(129 51 165 / 78%);
+  --kzen-form-input-outline: var(--kzen-color-primary-d3);
+  --kzen-form-input-foreground: var(--kzen-color-light-b1);
+
+
+  /* theme: dark - sidebars */
+  --kzen-sidebar-bg: var(--kzen-bg);
+  --kzen-sidebar-border-right: var(--kzen-border-light);
+  --kzen-sidebar-logo-border-bottom: 1px solid var(--kzen-border-light);
+  --kzen-sidebar-link-active-bg: var(--kzen-admin-main-bg);
+  --kzen-sidebar-link-active: var(--kzen-color-primary);
+  --kzen-sidebar-icon: var(--kzen-color-secondary);
+  --kzen-sidebar-icon-active: var(--kzen-color-primary);
+
+  /* theme: dark - table */
+  --kzen-table-bg: #091c2b;
+  --kzen-table-header-foreground: rgba(96, 45, 135, 0.75);
+  --kzen-table-tr-hover: rgba(226, 218, 218, 0.22);
+  --kzen-table-tr-odd: rgba(226, 218, 218, 0.14);
+
+  /* theme: dark - pagination */
+  --kzen-pagination-foreground: #bababa;
+  --kzen-pagination-foreground-disabled: #666;
+  --kzen-pagination-foreground-hover: #efefef;
+  --kzen-pagination-border: 1px solid rgba(100, 100, 100, 0.24);
+  --kzen-pagination-active-border: 1px solid rgba(203, 121, 218, 0.3);
+  --kzen-pagination-active-foreground: rgba(233, 112, 255, 0.8);
+
+  /* theme: dark - footer */
+  --kzen-footer-bg: var(--kzen-bg);
+  --kzen-footer-foreground: #3a465d;
+  --kzen-footer-border-top: var(--kzen-border-light);
+  --kzen-footer-link: #516179;
+
+  /* theme: dark - admin */
+  /* --kzen-admin-main-bg: #0e1f2c; */
+
+
+  /* theme: dark - scrollbar */
+  --kzen-scrollbar-track: var(--kzen-bg); /* #132432; */
+  --kzen-scrollbar-thumb: var(--kzen-color-dark-d1);
+  --kzen-scrollbar-thumb-hover: var(--kzen-color-dark-d4); /* #142a42; */
+
+  /* theme: dark - debug-bar */
+  --kzen-debug-bar-bg: var(--kzen-color-dark-d1);
+  --kzen-debug-bar-foreground: rgba(103, 113, 125, 0.75);
+  --kzen-debug-bar-contents-bg: var(--kzen-color-dark-b2);
+  --kzen-debug-bar-contents-foreground: rgba(153, 163, 175, 0.85);
+  --kzen-debug-bar-contents-border: 1px solid var(--kzen-color-dark-d2);
+
+} /* /.dark */
+
+
+/* /end: /resources/css/app/theme/dark.css */

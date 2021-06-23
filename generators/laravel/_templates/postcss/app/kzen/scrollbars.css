@@ -1,0 +1,33 @@
+/* begin: /resources/css/app/kzen/scrollbars.css */
+
+/* Firefox v64 upwards */
+.scroller {
+  overflow-y: scroll;
+  scrollbar-color: var(--kzen-scrollbar-thumb) var(--kzen-scrollbar-track);
+  scrollbar-width: thin;
+}
+
+/* stylelint-disable */
+::-webkit-scrollbar {
+  width: var(--kzen-scrollbar-width);
+  height: var(--kzen-scrollbar-height);
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--kzen-scrollbar-track);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--kzen-scrollbar-thumb);
+  border-radius: var(--kzen-scrollbar-border-radius);
+
+  /* Handle on hover */
+  &:hover {
+    background: var(--kzen-scrollbar-thumb-hover);
+  }
+}
+/* stylelint-enable */
+
+/* /end: /resources/css/app/kzen/scrollbars.css */

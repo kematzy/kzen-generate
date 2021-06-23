@@ -1,0 +1,60 @@
+/* begin: /resources/css/app/theme/colors.css */
+
+:root {
+
+  --kzen-foreground: #444;
+
+  /* begin: global colour variables */
+
+  /* --kzen-color-primary: #901fdb; */
+  --kzen-color-secondary: #c2a4cf;
+  --kzen-color-success: #2eb85c;
+  --kzen-color-warning: #f9b115;
+  --kzen-color-danger: #e55353;
+  --kzen-color-info: #3399ff;
+  /* --kzen-color-dark: #636f83; */
+  --kzen-color-selection: rgba(190, 101, 101, 0.1);
+
+  /* ## LIGHT: base colour, then 5 darker / brighter colours on each side */
+  --kzen-color-light-b5: #ffffff;
+  --kzen-color-light-b4: #fcfcfc;
+  --kzen-color-light-b3: #faf8f8;
+  --kzen-color-light-b2: #f7f5f5;
+  --kzen-color-light-b1: #f4f1f1;
+  --kzen-color-light:    #ebedef;
+  --kzen-color-light-d1: #f0ebea;
+  --kzen-color-light-d2: #ece7e6;
+  --kzen-color-light-d3: #e9e4e3;
+  --kzen-color-light-d4: #e5e0df;
+  --kzen-color-light-d5: #e1dcdb;
+
+  /* ## DARK: base colour, then 5 darker / brighter colours on each side */
+  --kzen-color-dark-b5: #32353d;
+  --kzen-color-dark-b4: #30333b;
+  --kzen-color-dark-b3: #2e3139;
+  --kzen-color-dark-b2: #2c3038;
+  --kzen-color-dark-b1: #2a2e36;
+  --kzen-color-dark:    #282c34;
+  --kzen-color-dark-d1: #25272c;
+  --kzen-color-dark-d2: #212328;
+  --kzen-color-dark-d3: #1d1f24;
+  --kzen-color-dark-d4: #181b20;
+  --kzen-color-dark-d5: #14171c;
+
+  /* ## PRIMARY: base colour, then 5 darker / brighter colours on each side */
+  --kzen-color-primary-b5: #A855F7;
+  --kzen-color-primary-b4: #9E4DE9;
+  --kzen-color-primary-b3: #9445DC;
+  --kzen-color-primary-b2: #8A3ECE;
+  --kzen-color-primary-b1: #8036C1;
+  --kzen-color-primary:    #653B89;
+  --kzen-color-primary-d1: #752EB3;
+  --kzen-color-primary-d2: #6B26A6;
+  --kzen-color-primary-d3: #611F98;
+  --kzen-color-primary-d4: #57178B;
+  --kzen-color-primary-d5: #4D0F7D;
+
+} /* /:root */
+
+
+/* /end: /resources/css/app/theme/colors.css */

@@ -1,0 +1,63 @@
+/* begin: /resources/css/app/components/header.css */
+
+@layer components {
+
+  #header {
+    /* @apply fixed w-full top-0 z-20 shadow; */
+    background-color: var(--kzen-header-bg);
+    border-bottom: var(--kzen-header-border-bottom);
+
+    & #logo {
+      color: var(--kzen-header-link);
+    }
+
+    & button,
+    & .nav-icon {
+      color: var(--kzen-header-link);
+
+      &:hover {
+        color: var(--kzen-link-hover);
+      }
+
+      &:focus {
+        outline: 2px solid transparent;
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  #btn-hamburger {
+    & svg {
+      min-height: 20px;
+      transition: transform 0.3s ease-in-out;
+
+      & line {
+        stroke: currentColor;
+        stroke-width: 3;
+        transition: transform 0.3s ease-in-out
+      }
+    }
+
+    &.open {
+      & svg {
+        transform: scale(0.7)
+      }
+
+      & #top {
+        transform: translate(6px, 0px) rotate(45deg)
+      }
+
+      & #middle {
+        opacity: 0;
+      }
+
+      & #bottom {
+        transform: translate(-12px, 10px) rotate(-45deg)
+      }
+    }
+  }
+
+} /* /@layer */
+
+
+/* /end: /resources/css/app/components/header.css */

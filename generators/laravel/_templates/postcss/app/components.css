@@ -1,0 +1,29 @@
+/* begin: /resources/css/app/components.css */
+
+@import "./kzen/scrollbars.css";
+@import "./kzen/animations.css";
+@import "./kzen/globals.css";
+@import "./kzen/forms.css";
+@import "./kzen/tables.css";
+
+@import "./components/header.css";
+@import "./components/alerts.css";
+@import "./components/overlays.css";
+@import "./components/dropdowns.css";
+/* @import "./components/sidebar.css"; */
+@import "./components/buttons.css";
+@import "./components/paginations.css";
+
+@import "./kzen/public.css";
+@import "./kzen/admin.css";
+@import "./kzen/auth.css";
+
+/* DEBUG:  */
+@import "./components/debug-bar.css";
+
+
+@layer components {
+
+}
+
+/* /end: /resources/css/app/components.css */

@@ -1,0 +1,135 @@
+/* begin: zen-admin-starter/resources/css/app/components/sidebar.css */
+
+.admin-sidebar {
+  @apply overflow-hidden fixed top-0 left-0;
+  background-color: var(--kzen-sidebar-bg);
+  border-right: var(--kzen-sidebar-border-right);
+  height: calc(100vh - var(--kzen-footer-height));
+  /* transition: all 0.2s ease; */
+  /* set the width to zero (not open or shown) */
+  width: 0;
+  z-index: 100;
+
+  /*
+  &.opened {
+    width: var(--kzen-sidebar-width);
+  }
+  */
+}
+
+.sidebar-logo {
+  @apply inline-flex items-center text-xl py-2 px-6 justify-center w-full;
+  height: var(--kzen-header-height);
+  border-bottom: var(--kzen-sidebar-logo-border-bottom);
+
+  & strong {
+    @apply hidden xl:inline-block;
+  }
+}
+
+.sidebar-menu {
+  @apply w-full list-none overflow-auto py-6 m-0 relative;
+  /* border-right: var(--kzen-border-light); */
+  height: calc(100vh - var(--kzen-navbar-height));
+
+  & .section-header {
+    @apply leading-5 py-4 px-2 text-gray-600 uppercase text-xs;
+  }
+
+  & .nav-item {
+    @apply relative my-2 mx-0 py-3 px-4;
+
+    & .nav-link {
+      color: var(--kzen-link);
+      /* transition: all 0.3s ease; */
+    }
+
+    & .nav-icon {
+      @apply pr-3;
+      color: var(--kzen-sidebar-icon);
+    }
+
+    &:hover {
+      background-color: var(--kzen-sidebar-link-active-bg);
+
+      &.nav-link,
+      &.nav-icon {
+        color: var(--kzen-sidebar-link-active);
+      }
+    }
+
+    &.active {
+      background-color: var(--kzen-sidebar-link-active-bg);
+      border-right: 1px solid var(--kzen-admin-main-bg);
+      /* color: var(--kzen-sidebar-link-active); */
+
+      &.nav-link,
+      &.nav-icon {
+        color: var(--kzen-sidebar-link-active);
+      }
+    }
+  }
+}
+
+/* begin: RESPONSIVE STYLES */
+
+/* sm: */
+@media (min-width: 640px) {}
+
+/* md: */
+@media (min-width: 768px) {
+  /*
+  .admin-sidebar {
+    width: var(--kzen-sidebar-width-thin);
+    transition: width ease-out 250ms;
+      .nav-title {
+      @apply hidden;
+    }
+  }
+
+  body {
+    &.sidebar-closed {
+      .admin-sidebar {
+        width:
+      }
+    }
+  }
+  */
+}
+
+/* lg: */
+@media (min-width: 1024px) {}
+
+/* xl: */
+@media (min-width: 1280px) {
+  body {
+    /* sidebar is toggled closed, so show mini sidebar * /
+    .sidebar-closed .admin-sidebar {
+      width: var(--kzen-sidebar-width-thin);
+      transition: width ease-in 250ms;
+
+      &.nav-title {
+        @apply hidden;
+      }
+    }
+    */
+
+    /* sidebar is toggled open, so show it all * /
+    .sidebar-open .admin-sidebar {
+      width: var(--kzen-sidebar-width);
+      transition: width ease-in 250ms;
+
+      .nav-title {
+        @apply inline-block;
+      }
+    }
+    */
+  }
+}
+
+/* xxl: */
+@media (min-width: 1536px) {}
+
+/* /end: RESPONSIVE STYLES */
+
+/* /end: zen-admin-starter/resources/css/app/components/sidebar.css */
