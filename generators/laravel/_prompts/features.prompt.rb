@@ -10,55 +10,55 @@ prompt_start
 ### HANDLE FEATURE ADDITIONS:
 
 features = [
-  { key: 'git', name: fmtmenu('Git Setup', 'sets up a Git repository & commits script changes'), value: 'git' },
+  { key: 'git.enabled', name: fmtmenu('Git Setup', 'sets up a Git repository & commits script changes'), value: 'git' },
   { key: 'github', name: fmtmenu('GitHub Setup', 'sets up a new GitHub repository'), value: 'github' },
 ]
 puts
 choices = prompt.multi_select("Choose Git features?", features)
-# GIT
-confs.set('features.git', value: choices.include?('git') ? true : false)
-confs.set('features.github', value: choices.include?('github') ? true : false)
+
+# logger.info("git choices:  [#{choices.inspect}]")
+
+unless choices.include?('git')
+  if prompt.ask?('Are you sure you want to disable Git?')
+    confs.set('git.enabled', value: false)
+  else
+    confs.set('git.enabled', value: true)
+  end
+else
+  confs.set('git.enabled', value: choices.include?('git') ? true : false)
+end
+
+confs.set('git.github', value: choices.include?('github') ? true : false)
+
 
 
 ### CSS FEATURE ADDITIONS:
+# TODO: add support for SCSS setup instead of postCSS
 features = [
-  { key: 'tailwind', name: fmtmenu('Tailwind Setup', 'sets up Tailwind JIT with SCSS support'), value: 'tailwind' },
-  { key: 'stylelint', name: fmtmenu('Stylelint Setup', 'adds stylelint support to Tailwind & SCSS'), value: 'stylelint' },
+  { key: 'css.tailwind', name: fmtmenu('Tailwind Setup', 'sets up Tailwind JIT with postCSS support'), value: 'tailwind' },
+  { key: 'css.stylelint', name: fmtmenu('Stylelint Setup', 'adds stylelint support to Tailwind & postCSS'), value: 'stylelint' },
 ]
 
 puts
 choices = prompt.multi_select("Choose CSS features?", features)
 
+# logger.info("css choices:  [#{choices.inspect}]")
+
 # CSS
-confs.set('features.css.tailwind', value: choices.include?('tailwind') ? true : false)
-confs.set('features.css.stylelint', value: choices.include?('stylelint') ? true : false)
+confs.set('css.tailwind', value: choices.include?('tailwind') ? true : false)
+confs.set('css.stylelint', value: choices.include?('stylelint') ? true : false)
+
+
+### JS FEATURE ADDITIONS:
+run_prompt('features/js')
+
+
+### AUTH FEATURE ADDITIONS:
+# run_prompt('features/auth')
 
 
 ### DEV FEATURE ADDITIONS:
-features = [
-  # DEV
-  { key: 'telescope', name: fmtmenu('Telescope', 'installs Laravel Telescope debugging package'), value: 'telescope' },
-  # { key: 'telescopetoolbar', name: fmtmenu('Telescope Toolbar', 'adds browser toolbar to Telescope package'), value: 'telescopetoolbar' },
-  { key: 'dev.ray', name: fmtmenu('Ray Debug', 'adds Ray debug app support'), value: 'dev_ray' },
-  { key: 'dev.pretty-routes', name: fmtmenu('Pretty Routes', 'adds artisan command for pretty routes output'), value: 'dev_prettyroutes' },
-  # MAIL
-  { key: 'mailtrap', name: fmtmenu('MailTrap Emails', 'adds external email handling during development'), value: 'mailtrap' },
-  # MIX
-  { key: 'browsersync', name: fmtmenu('BrowserSync', 'adds browser live-reloads during development'), value: 'browsersync' },
-]
-
-puts
-choices = prompt.multi_select("Choose DEV features?", features)
-
-# DEV
-confs.set('features.dev.telescope', value: choices.include?('telescope') ? true : false)
-confs.set('features.dev.telescopetoolbar', value: choices.include?('telescopetoolbar') ? true : false)
-confs.set('features.dev.ray', value: choices.include?('dev_ray') ? true : false)
-confs.set('features.dev.pretty-routes', value: choices.include?('dev_prettyroutes') ? true : false)
-# MAIL
-confs.set('features.mail.mailtrap', value: choices.include?('mailtrap') ? true : false)
-# MIX
-confs.set('features.mix.browsersync', value: choices.include?('browsersync') ? true : false)
+run_prompt('features/dev')
 
 
 prompt_end

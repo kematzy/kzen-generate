@@ -3,7 +3,7 @@
 
 set_current_prompt 'project:new'
 
-puts
+# puts
 prompt_start
 
 # set the project name
@@ -15,4 +15,4 @@ prompt_run('features')
 
 
 prompt_end
-puts
+# puts
