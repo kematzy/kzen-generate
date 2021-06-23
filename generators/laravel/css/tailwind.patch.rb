@@ -234,10 +234,10 @@ logger.success "added core postCSS files"
 
 
 # setup browserSync support
-patch_run('mix:browser-sync') if confs.fetch('features.mix.browsersync')
+patch_run('mix:browser-sync') if confs.fetch('dev.mix.browsersync')
 
 # setup StyleLint support
-patch_run('css:stylelint') if confs.fetch('features.css.stylelint')
+patch_run('css:stylelint') if confs.fetch('css.stylelint')
 
 
 # npm run dev
