@@ -24,38 +24,52 @@ inside @project_name do
   confs.prepend_path(Dir.pwd)
 
   # 2) Handle Git repository
-  if confs.fetch('features.git')
-    run_patch('git/init')
+  if confs.fetch('git.enabled')
+    patch_run('git/init')
   else
     logger.warn "skipped creating Git repo"
   end
 
   # 3) Add DB setup
-  run_patch("db:#{confs.fetch('db.type')}") if confs.fetch('db')
+  patch_run("db:#{confs.fetch('db.type')}") if confs.fetch('db')
 
   # 4) Ensure DB Sessions support
-  run_patch('db:sessions') if confs.fetch('db')
+  patch_run('db:sessions') if confs.fetch('db')
 
   # 5) Features: Add Tailwind support (including: Stylelint, BrowserSync)
-  run_patch('css:tailwind') if confs.fetch('features.css.tailwind')
+  patch_run('css:tailwind') if confs.fetch('css.tailwind')
 
   # 6) Features: Add Telescope support (including: Telescope Toolbar)
-  run_patch('dev:telescope') if confs.fetch('features.dev.telescope')
+  patch_run('dev:telescope') if confs.fetch('dev.telescope')
 
   # 7) Features: Add Ray Debug support (including: none)
-  run_patch('dev:ray') if confs.fetch('features.dev.ray')
+  patch_run('dev:ray') if confs.fetch('dev.ray')
 
   # 8) Features: Add Pretty Routes support (including: none)
-  run_patch('dev:pretty-routes') if confs.fetch('features.dev.pretty-routes')
+  patch_run('dev:pretty-routes') if confs.fetch('dev.pretty-routes')
 
   # 9) Features: Add Mail Mailtrap support (including: none)
-  run_patch('mail:mailtrap') if confs.fetch('features.mail.mailtrap')
   patch_run('dev:mail:mailtrap') if confs.fetch('dev.mail.mailtrap')
 
+  set_current_patch 'project:new' # reset before ending script
+
+  gsub_file('.editorconfig', 'indent_size = 4', 'indent_size = 2', verbose_opts)
+  git_commit('updated .editorconfig file indentation size')
+  logger.success 'updated .editorconfig file indentation size'
+
+
+  # # 10) Features: Add JS:Svelte support (including: none)
+  # patch_run('js:svelte') if confs.fetch('features.js.svelte')
+
+  # # 11) Features: Add JS:Prettier support (including: none)
+  # patch_run('js:prettier') if confs.fetch('features.js.prettier')
+
   # then save the configs
-  confs.write
+  confs.write(force: true)
+  git_commit('saved kzen.config.yml')
+
 end
 
 
-puts
 patch_end
+puts
