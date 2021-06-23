@@ -8,9 +8,13 @@ puts
 patch_start
 
 
+# set the config value if not set
+confs.set('dev.ray', value: true) unless confs.fetch('dev.ray')
+
 composer_install('spatie/laravel-ray')
 
 artisan_cmd('ray:publish-config', 'published the spatie/laravel-ray config')
+
 
 patch_end
 puts
