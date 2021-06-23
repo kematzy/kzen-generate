@@ -44,20 +44,12 @@ module Kzen
         logger.success("#{message}: #{cmd}")
       end
 
+
       #### NPM HELPERS
 
-
-      def npm_install(args)
-        msg = args[1] ? args[1] : args[0]
-        packages = args[0] ? args[0] : nil
-
-        if packages
-          run("npm install #{packages}", debug_opts)
-          git_commit("npm install #{packages}")
-        else
-          run("npm install", debug_opts)
-          git_commit('npm install')
-        end
+      def npm_install(packages, msg = nil)
+        run("npm install #{packages}", debug_opts)
+        git_commit("npm install #{packages}")
         message = msg ? msg : "npm install #{packages}"
         logger.success(message)
       end
@@ -88,6 +80,67 @@ module Kzen
         logger.success(message)
       end
 
+      def npm_install_if_not_installed?(package, msg = nil)
+        if package_installed?(package)
+          logger.warn("npm package: #{package} already installed")
+        else
+          npm_install(package, msg)
+        end
+      end
+
+      def npm_install_dev_if_not_installed?(package, msg = nil)
+        if package_installed?(package)
+          logger.warn("npm package: #{package} already installed")
+        else
+          npm_install_dev(package, msg)
+        end
+      end
+
+
+      #### JS HELPERS
+
+      def js_configured?
+        !confs.fetch('js.type').nil?
+      end
+
+      def get_js_type
+        confs.fetch('js.type') || 'svelte'
+      end
+
+      def svelte?
+        confs.fetch('js.type') === 'svelte'
+      end
+
+      def vue?
+        confs.fetch('js.type') === 'vue'
+      end
+
+      def inertiaJS?
+        confs.fetch('js.inertiajs')
+      end
+
+      def cypress?
+        confs.fetch('js.cypress')
+      end
+
+
+      #### CSS HELPERS
+
+      def get_css_type
+        confs.fetch('css.type') || 'postcss'
+      end
+
+      def postCSS?
+        confs.fetch('css.type') === 'postcss'
+      end
+
+      def scss?
+        confs.fetch('css.type') === 'scss'
+      end
+
+      def tailwindCSS?
+        confs.fetch('css.tailwind')
+      end
 
   end
 
