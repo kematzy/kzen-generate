@@ -20,6 +20,7 @@ module Kzen
       def db_sqlite?
         confs.fetch('db.type') === 'sqlite'
       end
+      alias_method :sqlite?, :db_sqlite?
 
       def db_sqlite_exists?(dbname = 'database')
         res = File.exists?("database/#{dbname}.sqlite")
@@ -48,6 +49,7 @@ module Kzen
       def db_mysql?
         confs.fetch('db.type') === 'mysql'
       end
+      alias_method :mysql?, :db_mysql?
 
       def db_mysql_exists?(dbname = confs.fetch('db.database'))
         res = `/usr/bin/mysql -u #{confs.fetch('db.username')} -e "SHOW DATABASES" | grep #{confs.fetch('db.database')}`.chomp!
@@ -76,10 +78,12 @@ module Kzen
       def db_pgsql?
         confs.fetch('db.type') === 'pgsql'
       end
+      alias_method :pgsql?, :db_pgsql?
 
       def db_pgsql_exists?(dbname = confs.fetch('db.database'))
         res = `/usr/bin/psql -U #{confs.fetch('db.username')} -l |  grep #{confs.fetch('db.database')} | wc -l`.chomp!
-        if res === 1
+        logger.warn("db_pgsql_exists? => [#{res}]")
+        if res.to_s === '1'
           logger.info("PostgreSQL DB: #{bbg(confs.fetch('db.database'))} exists")
           return true
         else
@@ -89,12 +93,13 @@ module Kzen
       end
 
       def db_pgsql_create(dbname, dbuser)
-        run("/usr/bin/createdb -U #{dbuser} #{dbname}\";", debug_opts)
+        logger.info("about to create a PostgresSQL DB with dbname=[#{dbname}], user=[#{dbuser}]")
+        run("/usr/bin/createdb -U #{dbuser} #{dbname}", debug_opts)
         logger.success("created PostgresSQL DB: #{dbname}")
       end
 
       def db_pgsql_drop(dbname, dbuser)
-        run("/usr/bin/dropdb -U #{dbuser} #{dbname}\";", debug_opts)
+        run("/usr/bin/dropdb -U #{dbuser} #{dbname}", debug_opts)
         logger.success("dropped PostgresSQL DB: #{dbname}")
       end
 
