@@ -69,7 +69,7 @@ end
 artisan_cmd('vendor:publish --tag=jetstream-views') if confs.set('auth.jetstream.publish_views')
 
 # check if using inertia & Vue, if so add vetur configs
-run_patch('js:vue:vetur') if confs.set('auth.jetstream.type') == 'inertia'
+patch_run('js:vue:vetur') if confs.set('auth.jetstream.type') == 'inertia'
 
 
 patch_end
