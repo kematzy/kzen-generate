@@ -18,7 +18,7 @@
           "if",
           "else",
           "return",
-          "layers"
+          "layer"
         ]
       }
     ],
