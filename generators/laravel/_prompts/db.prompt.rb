@@ -14,7 +14,7 @@ logger.debug("db is =>: #{db.inspect}")
 defaults = {
   sqlite: { name: 'database' },
   pgsql:  { host: '127.0.0.1', port: '5432', username: 'kzen', password: '123456' },
-  pgsql:  { host: 'localhost', port: '3306', username: 'kzen', password: '' },
+  mysql:  { host: 'localhost', port: '3306', username: 'kzen', password: '' },
 }
 
 # db: can either be:
@@ -55,10 +55,10 @@ else
     # username
     confs.set('db.username', value: prompt.ask("Add the DB username", default: defaults[dbtype.to_sym][:username]))
     # password
-    confs.set('db.password', value: prompt.mask("Add the DB password", default: defaults[dbtype.to_sym][:password]))
+    confs.set('db.password', value: prompt.ask("Add the DB password", default: defaults[dbtype.to_sym][:password]))
   end
 end
-logger.debug("set db to: #{confs.fetch(:db)}")
+logger.info("set db to: #{confs.fetch(:db)}")
 
 
 prompt_end
