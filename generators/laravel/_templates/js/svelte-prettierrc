@@ -1,0 +1,25 @@
+{
+  "semi": false,
+  "singleQuote": true,
+  "printWidth": 120,
+  "tabWidth": 2,
+  "trailingComma": "es5",
+  "jsxBracketSameLine": true,
+  "htmlWhitespaceSensitivity": "strict",
+  "trailingCommaPHP": true,
+  "braceStyle": "psr-2",
+  "phpVersion": "7.4",
+  "overrides": [
+    {
+      "files": "*.blade.php",
+      "options": {
+        "parser": "html"
+      }
+    }
+  ],
+  "svelteSortOrder": "options-scripts-markup-styles",
+  "svelteStrictMode": true,
+  "svelteAllowShorthand": true,
+  "svelteBracketNewLine": true,
+  "svelteIndentScriptAndStyle": true
+}
