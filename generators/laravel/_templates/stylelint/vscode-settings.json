@@ -4,24 +4,28 @@
   "scss.validate": false,
   "postcss.validate": false,
   "files.associations": {
+    "*.blade.php": "blade",
     "*.css": "postcss"
   },
   "[php]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    // "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[blade]": {
-    "editor.tabSize": 2
+    "editor.tabSize": 2,
+    // "editor.autoClosingBrackets": "always"
+    // "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": true,
+    "source.fixAll.html": true
   },
-  "stylelint.enable": true,
-  "stylelint.validate": [
-    "css",
-    "scss",
-    "postcss"
-  ],
+  // "stylelint.enable": true,
+  // "stylelint.validate": [
+  //   "css",
+  //   "postcss"
+  // ],
   "typescript.disableAutomaticTypeAcquisition": true,
   "javascript.format.enable": false
 }
