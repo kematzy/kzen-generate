@@ -9,18 +9,10 @@ module.exports = {
       '@': path.resolve('resources/js'),
     },
   },
+  // plugins: [],
   module: {
     rules: [
-      {
-        test: /\.(svelte)$/,
-        use: {
-          loader: 'svelte-loader',
-          options: {
-            emitCss: true,
-            hotReload: true,
-          },
-        },
-      },
+      // svelte_loader_replace
     ],
   },
 };
