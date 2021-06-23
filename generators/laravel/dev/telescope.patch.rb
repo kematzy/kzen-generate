@@ -8,13 +8,16 @@ puts
 patch_start
 
 
+# set the config value if not set
+confs.set('dev.telescope', value: true) unless confs.fetch('dev.telescope')
+
 composer_install('laravel/telescope')
 
 artisan_cmd('telescope:install', 'installed laravel/telescope package')
 
 artisan_migrate
 
-patch_run('dev:telescope-toolbar') if confs.fetch('features.dev.telescopetoolbar')
+patch_run('dev:telescope-toolbar') if confs.fetch('dev.telescope-toolbar')
 
 
 patch_end
