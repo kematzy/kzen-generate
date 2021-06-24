@@ -3,38 +3,38 @@
 
   export let to
   export let as
+
+  let klass = (as === 'button') ? 'dropdown-item-button' : 'dropdown-item-link'
+  $: props = {
+    ...$$restProps,
+    class: `${klass} ${$$restProps.class || ''}`,
+  }
 </script>
 
-<div>
+<div class="dropdown-item">
   {#if as == 'button'}
-    <button type="submit" class="block w-full px-4 py-2 text-sm leading-5 text-gray-700 text-left hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition">
-      <slot></slot>
+    <button type="submit" {...props}>
+      <span class="flex flex-row items-center justify-start">
+        <slot />
+      </span>
     </button>
-  {:else if as == 'a'}
-    <a
-      href={to}
-      class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition"
-      use:inertia
-    >
-      <slot />
+  {:else if as == 'ext'}
+    <a href={to} {...props} target="_blank">
+      <span class="flex flex-row items-center justify-start">
+        <slot />
+      </span>
     </a>
   {:else if as == 'post'}
-    <a
-      href={to}
-      class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition"
-      use:inertia="{{ method: 'post' }}"
-    >
+    <a href={to} {...props} use:inertia="{{ method: 'post' }}">
       <span class="flex flex-row items-center justify-start">
         <slot />
       </span>
     </a>
   {:else}
-    <a
-      href={to}
-      class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition"
-      use:inertia
-    >
-      <slot />
+    <a href={to} {...props} use:inertia>
+      <span class="flex flex-row items-center justify-start">
+        <slot />
+      </span>
     </a>
   {/if}
 </div>

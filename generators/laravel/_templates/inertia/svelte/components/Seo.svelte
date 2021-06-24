@@ -1,8 +1,5 @@
-<script context="module">
-  import { siteTitle, siteDescription } from '@/store.js'
-</script>
-
 <script>
+  import { siteTitle, siteDescription } from '@/store.js'
   export let title
   export let description
   $: desc = description ? description : $siteDescription

@@ -3,8 +3,8 @@
   import { isEscKey } from '@/utils'
 
   export let align = 'right'
-  export let width = 'w-48'
-  export let contentClasses = 'py-1 bg-white'
+  export let width = 'w-64'
+  export let contentClasses = 'py-1'
 
   let open = false
   let alignment = ''
@@ -34,7 +34,7 @@
 <svelte:window on:keydown={handleEscKey} />
 
 
-<div class="relative">
+<div {...$$restProps} class="relative">
   <div class="dropdown-trigger" on:click={toggle}>
     <slot name="trigger"></slot>
   </div>
@@ -48,45 +48,3 @@
     </div>
   </div>
 </div>
-
-<style style="scss" global>
-  .dropdown-overlay {
-    @apply fixed inset-0 z-40;
-    background-color: var(--kzen-header-bg);
-  }
-
-  .dropdown-menu {
-    @apply origin-top-right absolute z-50 mt-2 rounded-md shadow-lg;
-    background-color: var(--kzen-header-bg);
-  }
-
-  .dropdown-header {
-    @apply block px-4 pt-2 pb-3 text-xs uppercase;
-    color: var(--kzen-header-link);
-  }
-
-  .dropdown-item-button {
-    @apply w-full focus:outline-none;
-  }
-
-  .dropdown-item-link,
-  .dropdown-item-button {
-    @apply block text-base;
-    padding: 0.5rem 1rem 0.5rem 0;
-    color: var(--kzen-header-link);
-
-    &.nav-icon {
-      @apply text-xl;
-    }
-
-    &:hover {
-      color: var(--kzen-link-hover);
-      background-color: var(--kzen-dropdown-hover);
-    }
-  }
-
-  .dropdown-item-divider {
-    border-top: var(--kzen-dropdown-divider);
-  }
-
-</style>

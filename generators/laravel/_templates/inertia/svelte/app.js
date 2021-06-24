@@ -1,6 +1,7 @@
 import { App } from '@inertiajs/inertia-svelte'
 import { InertiaProgress } from '@inertiajs/progress'
 import PublicLayout from './layouts/Public.svelte'
+import AuthLayout from './layouts/Auth.svelte'
 import AdminLayout from './layouts/Admin.svelte'
 
 InertiaProgress.init({
@@ -20,23 +21,17 @@ InertiaProgress.init({
 
 const el = document.getElementById('app')
 
-
 new App({
   target: el,
   props: {
     initialPage: JSON.parse(el.dataset.page),
-    resolveComponent: name => import(`./pages/${name}.svelte`)
+    resolveComponent: name => import(`@/pages/${name}.svelte`)
     .then((page) => {
       if (page.layout === undefined) {
-        page.layout = name.startsWith('admin/') ? AdminLayout : PublicLayout
+        page.layout = name.startsWith('auth/')
+          ? AuthLayout
+          : name.startsWith('admin/') ? AdminLayout : PublicLayout
       }
-      // if (page.layout === undefined && name.startsWith('auth/')) {
-      //     page.layout = AuthLayout
-      //   // } else if (page.layout === undefined && !name.startsWith('admin/')) {
-      //   //   page.layout = AdminLayout
-      //   } else {
-      //     page.layout = PublicLayout
-      //   }
       return page
     }),
   },

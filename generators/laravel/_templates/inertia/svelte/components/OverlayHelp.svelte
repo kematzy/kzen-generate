@@ -11,7 +11,7 @@
   }
 </script>
 
-<Overlay id="help-overlay" bind:open={open}>
+<Overlay id="overlay-help" bind:open={open}>
   <div class="flex flex-wrap">
     <div class="flex flex-col items-start justify-start w-full column md:w-1/3 lg:w-1/4" in:fly="{{ ...ani, delay: 150 }}" out:fade>
       <h3 class="pt-8">Help Sections</h3>
