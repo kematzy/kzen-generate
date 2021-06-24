@@ -118,9 +118,11 @@ module Kzen
 
     def read_configs
       confs.append_path(Dir.pwd)
-      confs.read
-      logger.info "kzen.config.yml: (db) [#{confs.fetch('db')}] "
-      logger.info "kzen.config.yml: (features) [#{confs.fetch('features')}] "
+      if confs.exist?
+        confs.read
+        logger.info "kzen.config.yml: (db) [#{confs.fetch('db')}] "
+        # logger.info "kzen.config.yml: (features) [#{confs.fetch('features')}] "
+      end
     end
 
 
@@ -149,8 +151,10 @@ module Kzen
       if patch_exists?(@namespaced_path)
         begin
           patch_run(@namespaced_path, verbose: false)
+        rescue SystemExit => e
+          logger.fatal("Rescued SystemExit: running patch: '#{@namespaced_path}' with the following message: [ #{e.message} ]")
         rescue Exception => e
-          logger.error("Error: [ #{e.inspect} ]")
+          logger.error("Error: running patch: '#{@namespaced_path}' with the following message: [ #{e.message} ]")
         end
       else
         logger.fatal("No such patch #{bbr(patch)} found.")
@@ -162,6 +166,11 @@ module Kzen
         end
         logger.warn("Terminated execution")
       end
+    end
+
+    def save_configs
+      confs.write(force: true)
+      logger.info "kzen.config.yml: (*) [#{confs.to_hash}] "
     end
 
     # Finish message
