@@ -109,6 +109,15 @@ gsub_file('app/Models/User.php', find, replace, verbose_opts)
 git_commit('add MustVerifyEmail to User model')
 logger.success 'added MustVerifyEmail to User model'
 
+
+# test for Cypress installed, if not install it and then add the Auth Templates
+if cypress?
+  patch_run('js:cypress:auth:kzen')
+else
+  patch_recommended('js:cypress', 'Cypress')
+  patch_recommended('js:cypress:auth:kzen', 'Cypress Tests for Kzen Auth')
+end
+
 # artisan_cmd()
 
 
